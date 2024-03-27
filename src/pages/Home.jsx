@@ -37,9 +37,12 @@ const Home = () => {
       ) : (
         <section>
           {data.offers.map((offer) => {
-            return <Card key={offer._id} offer={offer} />;
+            return (
+              <Link to={`/offers/${offer._id}`} key={offer._id}>
+                <Card offer={offer} />
+              </Link>
+            );
           })}
-          <Link to="/offers/:id">Allez à l'offre</Link>
         </section>
       )}
     </main>
