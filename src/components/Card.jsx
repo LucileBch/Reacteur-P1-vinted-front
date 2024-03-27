@@ -1,6 +1,5 @@
 // ---------- CARD Component ----------
 const Card = ({ offer }) => {
-  console.log(offer);
   return (
     <article>
       <img
@@ -26,18 +25,10 @@ const Card = ({ offer }) => {
       })} */}
 
       {offer.product_details.map((detail) => {
-        return (
-          <div>
-            <p>{detail.TAILLE}</p>
-          </div>
-        );
+        return <p key={Object.keys(detail)}>{detail.TAILLE}</p>;
       })}
       {offer.product_details.map((detail) => {
-        return (
-          <div>
-            <p>{detail.MARQUE}</p>
-          </div>
-        );
+        return <p key={Object.keys(detail)}>{detail.MARQUE}</p>;
       })}
     </article>
   );
