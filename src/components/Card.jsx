@@ -16,19 +16,19 @@ const Card = ({ offer }) => {
       />
       <p>{offer.product_price} €</p>
 
-      {offer.product_details.map((detail) => {
-        return (
-          <div>
-            <p>{detail.TAILLE}</p>
-            <p>{detail.MARQUE}</p>
-          </div>
-        );
-      })}
-
       {/* {offer.product_details.map((detail) => {
         return (
           <div>
             <p>{detail.TAILLE}</p>
+            <p>{detail.MARQUE}</p>
+          </div>
+        );
+      })} */}
+
+      {offer.product_details.map((detail) => {
+        return (
+          <div>
+            <p>{detail.TAILLE}</p>
           </div>
         );
       })}
@@ -38,7 +38,7 @@ const Card = ({ offer }) => {
             <p>{detail.MARQUE}</p>
           </div>
         );
-      })} */}
+      })}
     </article>
   );
 };
