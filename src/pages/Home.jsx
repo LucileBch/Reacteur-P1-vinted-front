@@ -2,12 +2,15 @@
 // Import packages
 import { Link } from "react-router-dom";
 
+// Import components
+import Hero from "../components/Hero";
+
 const Home = () => {
   return (
-    <div>
-      <p>Home page</p>
+    <main>
+      <Hero />
       <Link to="/offers/:id">Allez à l'offre</Link>
-    </div>
+    </main>
   );
 };
 
