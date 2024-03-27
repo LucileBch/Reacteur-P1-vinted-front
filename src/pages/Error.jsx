@@ -1,7 +1,14 @@
 // ---------- ERROR Page ----------
+// Import packages
+import { Link } from "react-router-dom";
 
 const Error = () => {
-  return <p>ERROR 404</p>;
+  return (
+    <div>
+      <p>ERROR 404</p>
+      <Link to="/"> Retour à la page d'accueil</Link>
+    </div>
+  );
 };
 
 export default Error;
