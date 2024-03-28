@@ -14,22 +14,8 @@ const Card = ({ offer }) => {
         alt={offer.product_description}
       />
       <p>{offer.product_price} €</p>
-
-      {/* {offer.product_details.map((detail) => {
-        return (
-          <div>
-            <p>{detail.TAILLE}</p>
-            <p>{detail.MARQUE}</p>
-          </div>
-        );
-      })} */}
-
-      {offer.product_details.map((detail) => {
-        return <p key={Object.keys(detail)}>{detail.TAILLE}</p>;
-      })}
-      {offer.product_details.map((detail) => {
-        return <p key={Object.keys(detail)}>{detail.MARQUE}</p>;
-      })}
+      <p>{offer.product_details[1].TAILLE}</p>
+      <p>{offer.product_details[0].MARQUE}</p>
     </article>
   );
 };
