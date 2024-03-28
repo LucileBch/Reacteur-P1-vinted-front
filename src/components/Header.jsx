@@ -30,14 +30,18 @@ const Header = ({
   };
 
   const handleLogout = () => {
-    setIsConnected(false);
     Cookies.remove("userToken");
     setToken("");
   };
 
+  const handleCloseModals = () => {
+    setVisible(false);
+    setVisibleLogin(false);
+  };
+
   return (
     <header style={{ display: "flex" }}>
-      <Link to="/">
+      <Link to="/" onClick={handleCloseModals}>
         <img src={Logo} alt="Logo de Vinted" style={{ width: "150px" }} />
       </Link>
       <Search />

@@ -20,8 +20,8 @@ function App() {
   // State to display Modal
   const [visible, setVisible] = useState(false);
   const [visibleLogin, setVisibleLogin] = useState(false);
-  const [isConnected, setIsConnected] = useState(false);
   const [token, setToken] = useState(Cookies.get("userToken")) || "";
+  const [isConnected, setIsConnected] = useState(token ? true : false);
 
   return (
     <div style={{ position: "relative" }}>

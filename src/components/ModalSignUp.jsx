@@ -37,7 +37,6 @@ const ModalSignUp = ({
       Cookies.set("userToken", data.token, { expires: 7 });
       setToken(data.token);
       setVisible(!visible);
-      setIsConnected(true);
       navigate("/");
     } catch (error) {
       console.log(error);
