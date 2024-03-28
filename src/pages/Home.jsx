@@ -27,10 +27,10 @@ const Home = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(
+      const { data } = await axios.get(
         `https://lereacteur-vinted-api.herokuapp.com/offers?page=${page}&limit=${limit}`
       );
-      setData(response.data);
+      setData(data);
       setIsLoading(false);
     } catch (error) {
       console.log(error);

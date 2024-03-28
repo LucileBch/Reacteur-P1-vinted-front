@@ -1,11 +1,11 @@
 // ---------- OFFER Page ----------
 // Import packages
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 // Import components
+import Carousel from "../components/Carousel";
 import OfferInfo from "../components/OfferInfo";
 
 const Offer = () => {
@@ -13,16 +13,20 @@ const Offer = () => {
   // Check server response
   //    If waiting for datas : display "loading"
   //    Else : display page
-  const [data, setData] = useState();
+  const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
 
   const fetchData = async () => {
-    const response = await axios.get(
-      `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
-    );
-    setData(response.data);
-    setIsLoading(false);
+    try {
+      const { data } = await axios.get(
+        `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+      );
+      setData(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -35,10 +39,7 @@ const Offer = () => {
         "Loading"
       ) : (
         <section>
-          <img
-            src={data.product_image.secure_url}
-            alt={data.product_description}
-          />
+          <Carousel infos={data} />
           <OfferInfo infos={data} />
         </section>
       )}
