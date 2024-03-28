@@ -18,15 +18,23 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const limit = 10;
-  const dividePage = data.count / limit;
-  const maxPages = Math.ceil(dividePage);
+  // const dividePage = data.count / limit;
+  // const maxPages = Math.ceil(dividePage);
+  // console.log(data);
+  // console.log(data.count);
+  // console.log(dividePage);
+  // console.log(maxPages);
 
   const fetchData = async () => {
-    const response = await axios.get(
-      `https://lereacteur-vinted-api.herokuapp.com/offers?page=${page}&limit=${limit}`
-    );
-    setData(response.data);
-    setIsLoading(false);
+    try {
+      const response = await axios.get(
+        `https://lereacteur-vinted-api.herokuapp.com/offers?page=${page}&limit=${limit}`
+      );
+      setData(response.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -68,7 +76,7 @@ const Home = () => {
             <Button
               text="Next"
               onClick={handleNextPage}
-              disabled={page === maxPages}
+              // disabled={page === maxPages}
             />
           </div>
         </section>
