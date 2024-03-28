@@ -22,9 +22,11 @@ const Header = ({
 }) => {
   const handleSignUp = () => {
     setVisible(!visible);
+    setVisibleLogin(false);
   };
   const handleLogin = () => {
     setVisibleLogin(!visibleLogin);
+    setVisible(false);
   };
 
   const handleLogout = () => {
