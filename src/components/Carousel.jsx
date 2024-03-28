@@ -1,3 +1,4 @@
+// ---------- CAROUSEL Component ----------
 const Carousel = ({ infos }) => {
   console.log(infos);
   return (
