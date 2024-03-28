@@ -14,16 +14,12 @@ const Home = () => {
   // Check server response
   //    If waiting for datas : display "loading"
   //    Else : display page
-  const [data, setData] = useState();
+  const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const limit = 10;
-  // const dividePage = data.count / limit;
-  // const maxPages = Math.ceil(dividePage);
-  // console.log(data);
-  // console.log(data.count);
-  // console.log(dividePage);
-  // console.log(maxPages);
+  const dividePage = data.count / limit;
+  const maxPages = Math.ceil(dividePage);
 
   const fetchData = async () => {
     try {
@@ -76,7 +72,7 @@ const Home = () => {
             <Button
               text="Next"
               onClick={handleNextPage}
-              // disabled={page === maxPages}
+              disabled={page === maxPages}
             />
           </div>
         </section>
