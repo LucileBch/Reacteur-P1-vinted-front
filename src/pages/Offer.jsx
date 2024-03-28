@@ -3,10 +3,30 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 // Import components
-import Carousel from "../components/Carousel";
 import OfferInfo from "../components/OfferInfo";
+
+// Responsive for Carousel
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+    slidesToSlide: 3, // optional, default to 1.
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+    slidesToSlide: 2, // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+};
 
 const Offer = () => {
   // Fetch API datas with useEffect
@@ -39,7 +59,24 @@ const Offer = () => {
         "Loading"
       ) : (
         <section>
-          <Carousel infos={data} />
+          <Carousel
+            swipeable={false}
+            draggable={false}
+            showDots={true}
+            responsive={responsive}
+          >
+            {data.product_pictures.map((picture) => {
+              return (
+                <img
+                  style={{ width: "200px" }}
+                  key={picture.asset_id}
+                  src={picture.secure_url}
+                  alt={data.product_name}
+                />
+              );
+            })}
+          </Carousel>
+
           <OfferInfo infos={data} />
         </section>
       )}
