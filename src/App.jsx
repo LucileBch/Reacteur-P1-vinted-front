@@ -21,7 +21,7 @@ function App() {
   const [visible, setVisible] = useState(false);
   const [visibleLogin, setVisibleLogin] = useState(false);
   const [token, setToken] = useState(Cookies.get("userToken")) || "";
-  const [isConnected, setIsConnected] = useState(token ? true : false);
+  // const [isConnected, setIsConnected] = useState(token ? true : false);
 
   return (
     <div style={{ position: "relative" }}>
@@ -31,8 +31,8 @@ function App() {
           setVisible={setVisible}
           visibleLogin={visibleLogin}
           setVisibleLogin={setVisibleLogin}
-          isConnected={isConnected}
-          setIsConnected={setIsConnected}
+          // isConnected={isConnected}
+          // setIsConnected={setIsConnected}
           token={token}
           setToken={setToken}
         />
@@ -48,8 +48,8 @@ function App() {
             setVisible={setVisible}
             visibleLogin={visibleLogin}
             setVisibleLogin={setVisibleLogin}
-            isConnected={isConnected}
-            setIsConnected={setIsConnected}
+            // isConnected={isConnected}
+            // setIsConnected={setIsConnected}
             token={token}
             setToken={setToken}
           />
@@ -60,8 +60,8 @@ function App() {
             setVisible={setVisible}
             visibleLogin={visibleLogin}
             setVisibleLogin={setVisibleLogin}
-            isConnected={isConnected}
-            setIsConnected={setIsConnected}
+            // isConnected={isConnected}
+            // setIsConnected={setIsConnected}
             token={token}
             setToken={setToken}
           />

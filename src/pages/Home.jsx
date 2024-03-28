@@ -9,7 +9,7 @@ import Hero from "../components/Hero";
 import Card from "../components/Card";
 import Button from "../components/Button";
 
-const Home = () => {
+const Home = ({ token }) => {
   // Fetch API datas with useEffect
   // Check server response
   //    If waiting for datas : display "loading"

@@ -32,6 +32,7 @@ const Header = ({
   const handleLogout = () => {
     Cookies.remove("userToken");
     setToken("");
+    // setIsConnected(false);
   };
 
   const handleCloseModals = () => {
@@ -48,17 +49,17 @@ const Header = ({
       <Button
         text="S'inscrire"
         onClick={handleSignUp}
-        disabled={isConnected === false ? false : true}
+        disabled={token ? true : false}
       />
       <Button
         text="Se connecter"
         onClick={handleLogin}
-        disabled={isConnected === false ? false : true}
+        disabled={token ? true : false}
       />
       <Button
         text="Se déconnecter"
         onClick={handleLogout}
-        disabled={isConnected === false ? true : false}
+        disabled={token ? false : true}
       />
       <Button text="Vends tes articles" />
     </header>
