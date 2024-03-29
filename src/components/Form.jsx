@@ -8,14 +8,8 @@ import Cookies from "js-cookie";
 // Import components
 import Input from "./Input";
 
-const Form = ({
-  modalName,
-  setModalName,
-  token,
-  setToken,
-  visible,
-  setVisible,
-}) => {
+const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
+  // States
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,6 +23,7 @@ const Form = ({
     setNewsletter(!newsletter);
   };
 
+  // Handle switch between Signup/Login modal
   const handleSwitch = (modalName) => {
     if (modalName === "signUp") {
       setModalName("login");
@@ -37,6 +32,8 @@ const Form = ({
     }
   };
 
+  // if Modal = signUp => display signUp Modal
+  // if Modal = login => display login Modal
   if (modalName === "signUp") {
     const handleSubmit = async (event) => {
       event.preventDefault();
@@ -107,7 +104,7 @@ const Form = ({
           <input type="submit" value="S'inscrire" />
           {errorMessage && <p>{errorMessage}</p>}
         </form>
-        {/* ADD handleswitch */}
+
         <button
           onClick={() => {
             handleSwitch(modalName);
@@ -134,7 +131,6 @@ const Form = ({
         setVisible(!visible);
         navigate("/");
       } catch (error) {
-        // console.log(error.response.status);
         if (error.response.status === 400 || error.response.status === 401) {
           setErrorMessage("Email ou mot de passe incorrect ou inexistant.");
         }
@@ -162,7 +158,7 @@ const Form = ({
           <input type="submit" value="Se connecter" />
           {errorMessage && <p>{errorMessage}</p>}
         </form>
-        {/* ADD handleswitch */}
+
         <button
           onClick={() => {
             handleSwitch(modalName);

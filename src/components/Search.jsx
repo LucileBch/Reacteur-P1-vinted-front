@@ -1,6 +1,6 @@
 // ---------- SEARCH Component ----------
 const Search = () => {
-  // Listen search changes
+  // Handle search changes
   const handleSearch = (event) => {
     const value = event.target.value;
   };

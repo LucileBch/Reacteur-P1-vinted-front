@@ -9,11 +9,12 @@ import Hero from "../components/Hero";
 import Card from "../components/Card";
 import Button from "../components/Button";
 
-const Home = ({ token }) => {
+const Home = () => {
   // Fetch API datas with useEffect
   // Check server response
   //    If waiting for datas : display "loading"
   //    Else : display page
+  // Set offer limit display for each page
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -37,10 +38,10 @@ const Home = ({ token }) => {
     fetchData();
   }, [page]);
 
+  // Handle change of page
   const handlePreviousPage = () => {
     setPage(page - 1);
   };
-
   const handleNextPage = () => {
     setPage(page + 1);
   };

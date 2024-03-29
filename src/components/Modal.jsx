@@ -2,14 +2,7 @@
 // Import component
 import Form from "./Form";
 
-const Modal = ({
-  modalName,
-  setModalName,
-  visible,
-  setVisible,
-  token,
-  setToken,
-}) => {
+const Modal = ({ modalName, setModalName, visible, setVisible, setToken }) => {
   return (
     <div
       style={{
@@ -28,7 +21,6 @@ const Modal = ({
         <Form
           modalName={modalName}
           setModalName={setModalName}
-          token={token}
           setToken={setToken}
           visible={visible}
           setVisible={setVisible}

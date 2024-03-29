@@ -10,24 +10,24 @@ import Search from "./Search";
 // Import assets
 import Logo from "../assets/img/logo.png";
 
-const Header = ({ visible, setVisible, token, setToken, setModalName }) => {
+const Header = ({ setVisible, token, setToken, setModalName }) => {
+  // Handle signup/login button
   const handleSignUp = () => {
     setVisible(true);
-    // ICI CHANGEMENT
     setModalName("signUp");
   };
   const handleLogin = () => {
     setVisible(true);
-    // ICI CHANGEMENT
     setModalName("login");
   };
 
+  // Handle logout button
   const handleLogout = () => {
     Cookies.remove("userToken");
     setToken("");
-    // setIsConnected(false);
   };
 
+  // Handle click on Logo
   const handleCloseModals = () => {
     setVisible(false);
   };
