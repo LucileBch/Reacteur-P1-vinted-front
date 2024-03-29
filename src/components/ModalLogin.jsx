@@ -10,19 +10,21 @@ const ModalLogin = ({
   setVisible,
   visibleLogin,
   setVisibleLogin,
-  isConnected,
-  setIsConnected,
+  // isConnected,
+  // setIsConnected,
   token,
   setToken,
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
-      event.preventDefault();
+      setErrorMessage("");
       const { data } = await axios.post(
         `https://lereacteur-vinted-api.herokuapp.com/user/login`,
         {
@@ -35,7 +37,10 @@ const ModalLogin = ({
       setVisibleLogin(!visibleLogin);
       navigate("/");
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data);
+      if (error.response.status === 400 || error.response.status === 401) {
+        setErrorMessage("Email ou mot de passe incorrect ou inexistant.");
+      }
     }
   };
 
@@ -88,7 +93,8 @@ const ModalLogin = ({
             }}
           />
 
-          <input type="submit" value="Se connecter" />
+          <input type="submit" value={"Se connecter"} />
+          {errorMessage && <p>{errorMessage}</p>}
         </form>
 
         <button onClick={handleSwitchModal}>
