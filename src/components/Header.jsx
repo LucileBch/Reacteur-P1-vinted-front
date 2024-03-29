@@ -1,12 +1,11 @@
 // ---------- HEADER Component ----------
 // Import packages
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
 // Import components
 import Button from "./Button";
-import Search from "./Search";
+import Input from "./Input";
 
 // Import assets
 import Logo from "../assets/img/logo.png";
@@ -54,11 +53,11 @@ const Header = ({
     setSort(!sort);
   };
 
+  // Handle price range
   const handlePriceMin = (event) => {
     const value = Number(event.target.value);
     setPriceMin(value);
   };
-
   const handlePriceMax = (event) => {
     const value = Number(event.target.value);
     setPriceMax(value);
@@ -70,7 +69,13 @@ const Header = ({
         <img src={Logo} alt="Logo de Vinted" style={{ width: "150px" }} />
       </Link>
 
-      <Search search={search} setSearch={setSearch} />
+      <Input
+        type="text"
+        placeholder="Rechercher des articles"
+        name="search"
+        setState={setSearch}
+        state={search}
+      />
 
       <p>Trier par prix</p>
       <input type="checkbox" name="sort" onClick={handleSort} />
