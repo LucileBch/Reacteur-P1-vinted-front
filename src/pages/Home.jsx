@@ -9,21 +9,32 @@ import Hero from "../components/Hero";
 import Card from "../components/Card";
 import Button from "../components/Button";
 
-const Home = ({ data, setData, isLoading, setIsLoading }) => {
+const Home = ({ sort }) => {
   // Fetch API datas with useEffect
   // Check server response
   //    If waiting for datas : display "loading"
   //    Else : display page
   // Set offer limit display for each page
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
+
   const limit = 10;
   const dividePage = data.count / limit;
   const maxPages = Math.ceil(dividePage);
 
+  // set sort value for URL
+  let sortValue = "";
+  if (sort === false) {
+    sortValue = "price-asc";
+  } else if (sort === true) {
+    sortValue = "price-desc";
+  }
+
   const fetchData = async () => {
     try {
       const { data } = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offers?page=${page}&limit=${limit}`
+        `https://lereacteur-vinted-api.herokuapp.com/offers?page=${page}&limit=${limit}&sort=${sortValue}`
       );
       setData(data);
       setIsLoading(false);
@@ -34,7 +45,7 @@ const Home = ({ data, setData, isLoading, setIsLoading }) => {
 
   useEffect(() => {
     fetchData();
-  }, [page]);
+  }, [page, sort]);
 
   // Handle change of page
   const handlePreviousPage = () => {

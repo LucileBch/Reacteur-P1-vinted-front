@@ -18,11 +18,7 @@ const Search = () => {
         />
       </div>
 
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <p>Trier par prix</p>
-        <label>
-          <input type="checkbox" />
-        </label>
+      <div>
         <p>Prix entre : </p>
         <input type="range" />
       </div>

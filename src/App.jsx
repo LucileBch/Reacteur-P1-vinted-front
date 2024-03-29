@@ -19,11 +19,10 @@ import "./App.css";
 
 function App() {
   // States
-  const [data, setData] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
   const [visible, setVisible] = useState(false);
   const [token, setToken] = useState(Cookies.get("userToken")) || "";
   const [modalName, setModalName] = useState("");
+  const [sort, setSort] = useState(false);
 
   return (
     <div style={{ position: "relative" }}>
@@ -33,30 +32,12 @@ function App() {
           token={token}
           setToken={setToken}
           setModalName={setModalName}
+          sort={sort}
+          setSort={setSort}
         />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                data={data}
-                setData={setData}
-                isLoading={isLoading}
-                setIsLoading={setIsLoading}
-              />
-            }
-          />
-          <Route
-            path="/offers/:id"
-            element={
-              <Offer
-                data={data}
-                setData={setData}
-                isLoading={isLoading}
-                setIsLoading={setIsLoading}
-              />
-            }
-          />
+          <Route path="/" element={<Home sort={sort} />} />
+          <Route path="/offers/:id" element={<Offer />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
