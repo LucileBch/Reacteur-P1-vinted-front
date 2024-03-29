@@ -1,12 +1,23 @@
 // ---------- CARD Component ----------
+// Import assets
+import EmptyAvatar from "../assets/img/user-empty-avatar.svg";
+
 const Card = ({ offer }) => {
   return (
     <article>
-      <img
-        src={offer.owner.account.avatar.secure_url}
-        alt="avatar de l'utilisateur"
-        style={{ borderRadius: "100%", width: "50px" }}
-      />
+      {offer.owner.account.avatar ? (
+        <img
+          src={offer.owner.account.avatar.secure_url}
+          alt="avatar de l'utilisateur"
+          style={{ borderRadius: "100%", width: "50px" }}
+        />
+      ) : (
+        <img
+          src={EmptyAvatar}
+          alt="avatar de l'utilisateur"
+          style={{ borderRadius: "100%", width: "50px" }}
+        />
+      )}
       <p>{offer.owner.account.username}</p>
       <img
         style={{ width: "150px" }}
