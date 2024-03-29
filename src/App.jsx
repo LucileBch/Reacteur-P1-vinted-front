@@ -19,6 +19,8 @@ import "./App.css";
 
 function App() {
   // States
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const [visible, setVisible] = useState(false);
   const [token, setToken] = useState(Cookies.get("userToken")) || "";
   const [modalName, setModalName] = useState("");
@@ -33,8 +35,28 @@ function App() {
           setModalName={setModalName}
         />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/offers/:id" element={<Offer />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                data={data}
+                setData={setData}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+              />
+            }
+          />
+          <Route
+            path="/offers/:id"
+            element={
+              <Offer
+                data={data}
+                setData={setData}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+              />
+            }
+          />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />

@@ -28,13 +28,11 @@ const responsive = {
   },
 };
 
-const Offer = () => {
+const Offer = ({ data, setData, isLoading, setIsLoading }) => {
   // Fetch API datas with useEffect
   // Check server response
   //    If waiting for datas : display "loading"
   //    Else : display page
-  const [data, setData] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
 
   const fetchData = async () => {

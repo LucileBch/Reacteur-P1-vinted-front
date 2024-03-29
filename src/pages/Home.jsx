@@ -9,14 +9,12 @@ import Hero from "../components/Hero";
 import Card from "../components/Card";
 import Button from "../components/Button";
 
-const Home = () => {
+const Home = ({ data, setData, isLoading, setIsLoading }) => {
   // Fetch API datas with useEffect
   // Check server response
   //    If waiting for datas : display "loading"
   //    Else : display page
   // Set offer limit display for each page
-  const [data, setData] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const limit = 10;
   const dividePage = data.count / limit;
