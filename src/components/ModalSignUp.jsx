@@ -10,8 +10,8 @@ const ModalSignUp = ({
   setVisible,
   visibleLogin,
   setVisibleLogin,
-  isConnected,
-  setIsConnected,
+  // isConnected,
+  // setIsConnected,
   token,
   setToken,
 }) => {
@@ -19,12 +19,15 @@ const ModalSignUp = ({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
+  // if propName="signup" => // sinon chopper LOGIN
   const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
-      event.preventDefault();
+      setErrorMessage("");
       const { data } = await axios.post(
         `https://lereacteur-vinted-api.herokuapp.com/user/signup`,
         {
@@ -39,7 +42,13 @@ const ModalSignUp = ({
       setVisible(!visible);
       navigate("/");
     } catch (error) {
-      console.log(error);
+      if (error.response.status === 409) {
+        setErrorMessage(
+          "Cet email existe déjà, merci de choisir une autre adresse."
+        );
+      } else if (error.response.data.message === "Missing parameters") {
+        setErrorMessage("Merci de remplir tous les champs.");
+      }
     }
   };
 
@@ -57,6 +66,7 @@ const ModalSignUp = ({
     setNewsletter(!newsletter);
   };
 
+  // si on est sur SIGUP switch gère changement de propName de modal à LOGIN ET INVERSEMENT
   const handleSwitchModal = () => {
     setVisible(!visible);
     setVisibleLogin(!visibleLogin);
@@ -77,6 +87,8 @@ const ModalSignUp = ({
       }}
     >
       <div>
+        {/* SI propname "Singup" <form> avec 4 x <Input /> */}
+        {/* SI propname "LOGIN" <form> avec 2 x <Input /> */}
         <h2>S'incrire</h2>
         <form onSubmit={handleSubmit}>
           <input
@@ -120,9 +132,11 @@ const ModalSignUp = ({
             Conditions et Politique de Confidentialité de Vinted. Je confirme
             avoir au moins 18 ans.
           </p>
-          <input type="submit" value="S'inscrire" />
+          <input type="submit" value={"S'inscrire"} />
+          {errorMessage && <p>{errorMessage}</p>}
         </form>
 
+        {/* si SIGNUP  text connecte toi SINON text creer un compte*/}
         <button onClick={handleSwitchModal}>
           Tu as déjà un compte ? Connecte-toi!
         </button>
