@@ -9,7 +9,7 @@ import Hero from "../components/Hero";
 import Card from "../components/Card";
 import Button from "../components/Button";
 
-const Home = ({ sort }) => {
+const Home = ({ sort, search, priceMin, priceMax }) => {
   // Fetch API datas with useEffect
   // Check server response
   //    If waiting for datas : display "loading"
@@ -34,7 +34,7 @@ const Home = ({ sort }) => {
   const fetchData = async () => {
     try {
       const { data } = await axios.get(
-        `https://lereacteur-vinted-api.herokuapp.com/offers?page=${page}&limit=${limit}&sort=${sortValue}`
+        `https://lereacteur-vinted-api.herokuapp.com/offers?page=${page}&limit=${limit}&sort=${sortValue}&title=${search}&priceMin=${priceMin}&priceMax=${priceMax}`
       );
       setData(data);
       setIsLoading(false);
@@ -45,7 +45,7 @@ const Home = ({ sort }) => {
 
   useEffect(() => {
     fetchData();
-  }, [page, sort]);
+  }, [page, sort, search, priceMin, priceMax]);
 
   // Handle change of page
   const handlePreviousPage = () => {

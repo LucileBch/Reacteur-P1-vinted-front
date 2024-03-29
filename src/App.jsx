@@ -23,6 +23,12 @@ function App() {
   const [token, setToken] = useState(Cookies.get("userToken")) || "";
   const [modalName, setModalName] = useState("");
   const [sort, setSort] = useState(false);
+  const [search, setSearch] = useState("");
+  const [priceMin, setPriceMin] = useState("");
+  const [priceMax, setPriceMax] = useState("");
+
+  console.log(priceMin);
+  console.log(priceMax);
 
   return (
     <div style={{ position: "relative" }}>
@@ -34,9 +40,25 @@ function App() {
           setModalName={setModalName}
           sort={sort}
           setSort={setSort}
+          search={search}
+          setSearch={setSearch}
+          priceMin={priceMin}
+          setPriceMin={setPriceMin}
+          priceMax={priceMax}
+          setPriceMax={setPriceMax}
         />
         <Routes>
-          <Route path="/" element={<Home sort={sort} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                sort={sort}
+                search={search}
+                priceMin={priceMin}
+                priceMax={priceMax}
+              />
+            }
+          />
           <Route path="/offers/:id" element={<Offer />} />
           <Route path="*" element={<Error />} />
         </Routes>

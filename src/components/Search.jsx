@@ -1,27 +1,20 @@
 // ---------- SEARCH Component ----------
-const Search = () => {
+const Search = ({ search, setSearch }) => {
   // Handle search changes
   const handleSearch = (event) => {
     const value = event.target.value;
+    setSearch(value);
   };
 
   // Search input
-  // Sort input
-  // Range input
+
   return (
     <div>
-      <div>
-        <input
-          type="tex"
-          placeholder="Recherche des articles"
-          onChange={handleSearch}
-        />
-      </div>
-
-      <div>
-        <p>Prix entre : </p>
-        <input type="range" />
-      </div>
+      <input
+        type="tex"
+        placeholder="Recherche des articles"
+        onChange={handleSearch}
+      />
     </div>
   );
 };
