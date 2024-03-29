@@ -10,23 +10,16 @@ import Search from "./Search";
 // Import assets
 import Logo from "../assets/img/logo.png";
 
-const Header = ({
-  visible,
-  setVisible,
-  visibleLogin,
-  setVisibleLogin,
-  isConnected,
-  setIsConnected,
-  token,
-  setToken,
-}) => {
+const Header = ({ visible, setVisible, token, setToken, setModalName }) => {
   const handleSignUp = () => {
-    setVisible(!visible);
-    setVisibleLogin(false);
+    setVisible(true);
+    // ICI CHANGEMENT
+    setModalName("signUp");
   };
   const handleLogin = () => {
-    setVisibleLogin(!visibleLogin);
-    setVisible(false);
+    setVisible(true);
+    // ICI CHANGEMENT
+    setModalName("login");
   };
 
   const handleLogout = () => {
@@ -37,7 +30,6 @@ const Header = ({
 
   const handleCloseModals = () => {
     setVisible(false);
-    setVisibleLogin(false);
   };
 
   return (
