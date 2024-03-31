@@ -53,6 +53,7 @@ const Header = ({
     setSearch("");
     setPriceMin("");
     setPriceMax("");
+    setPage(1);
   };
 
   // Handle price sort

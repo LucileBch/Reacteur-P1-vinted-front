@@ -1,0 +1,44 @@
+/* ---------- FOOTER CSS Style Sheet ---------- */
+footer {
+  background-color: var(--background-color);
+  font-size: 1.4rem;
+  line-height: 3rem;
+  padding: 20px 0;
+}
+footer li {
+  color: var(--text-secondary-color);
+}
+
+footer li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer__nav,
+.footer__icons,
+.footer__politics {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+.footer__nav,
+.footer__icons {
+  border-bottom: 1px solid rgba(23, 23, 23, 0.08);
+}
+
+.footer__icons {
+  align-items: center;
+}
+
+.footer__icons--social {
+  display: flex;
+  gap: 20px;
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+
+.footer__icons--store {
+  width: 250px;
+}
