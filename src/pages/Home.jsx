@@ -12,6 +12,8 @@ import Button from "../components/Button";
 // MUI Imports
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Container";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 // Style Imports
 import "../styles/Home.css";
@@ -55,12 +57,17 @@ const Home = ({ sort, search, priceMin, priceMax }) => {
   }, [page, sort, search, priceMin, priceMax]);
 
   // Handle change of page
-  const handlePreviousPage = () => {
-    setPage(page - 1);
+
+  const handlePageChange = (event, value) => {
+    setPage(value);
   };
-  const handleNextPage = () => {
-    setPage(page + 1);
-  };
+
+  // const handlePreviousPage = () => {
+  //   setPage(page - 1);
+  // };
+  // const handleNextPage = () => {
+  //   setPage(page + 1);
+  // };
 
   return (
     <main>
@@ -80,8 +87,16 @@ const Home = ({ sort, search, priceMin, priceMax }) => {
               })}
             </Box>
 
-            <div>
-              <Button
+            <div className="offerdisplay__buttons">
+              <Stack spacing={2}>
+                <Pagination
+                  count={maxPages}
+                  page={page}
+                  onChange={handlePageChange}
+                />
+              </Stack>
+
+              {/* <Button
                 text="Previous"
                 onClick={handlePreviousPage}
                 disabled={page <= 1}
@@ -93,7 +108,7 @@ const Home = ({ sort, search, priceMin, priceMax }) => {
                 text="Next"
                 onClick={handleNextPage}
                 disabled={page === maxPages}
-              />
+              /> */}
             </div>
           </Container>
         </section>
