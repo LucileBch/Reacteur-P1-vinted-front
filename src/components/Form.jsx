@@ -171,4 +171,5 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
   }
 };
 
+// Export component
 export default Form;

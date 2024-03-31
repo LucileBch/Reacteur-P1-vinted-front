@@ -40,4 +40,5 @@ const OfferInfo = ({ infos }) => {
   );
 };
 
+// Export component
 export default OfferInfo;

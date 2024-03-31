@@ -13,7 +13,7 @@ const Home = ({ sort, search, priceMin, priceMax }) => {
   // Fetch API datas with useEffect
   // Check server response
   //    If waiting for datas : display "loading"
-  //    Else : display page
+  //    Else : display content
   // Set offer limit display for each page
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -91,4 +91,5 @@ const Home = ({ sort, search, priceMin, priceMax }) => {
   );
 };
 
+// Export page
 export default Home;

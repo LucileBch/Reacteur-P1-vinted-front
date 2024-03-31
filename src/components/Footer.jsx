@@ -60,4 +60,5 @@ const Footer = () => {
   );
 };
 
+// Export component
 export default Footer;

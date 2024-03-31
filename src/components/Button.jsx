@@ -1,3 +1,4 @@
+// ---------- BUTTON Component ----------
 const Button = ({ text, onClick, disabled }) => {
   return (
     <button onClick={onClick} disabled={disabled}>
@@ -6,4 +7,5 @@ const Button = ({ text, onClick, disabled }) => {
   );
 };
 
+// Export components
 export default Button;

@@ -30,4 +30,5 @@ const Modal = ({ modalName, setModalName, visible, setVisible, setToken }) => {
   );
 };
 
+// Export component
 export default Modal;

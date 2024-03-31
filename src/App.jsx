@@ -27,9 +27,6 @@ function App() {
   const [priceMin, setPriceMin] = useState("");
   const [priceMax, setPriceMax] = useState("");
 
-  console.log(priceMin);
-  console.log(priceMax);
-
   return (
     <div style={{ position: "relative" }}>
       <Router>

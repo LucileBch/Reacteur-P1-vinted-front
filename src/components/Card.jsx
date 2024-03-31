@@ -31,4 +31,5 @@ const Card = ({ offer }) => {
   );
 };
 
+// Export component
 export default Card;

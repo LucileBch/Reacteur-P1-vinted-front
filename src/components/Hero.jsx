@@ -21,4 +21,5 @@ const Hero = () => {
   );
 };
 
+// Export component
 export default Hero;

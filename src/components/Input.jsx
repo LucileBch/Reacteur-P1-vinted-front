@@ -1,5 +1,6 @@
 // ---------- INPUT Component ----------
 const Input = ({ type, placeholder, name, state, setState }) => {
+  // Handle change
   const handleChange = (event) => {
     setState(event.target.value);
   };
@@ -17,4 +18,5 @@ const Input = ({ type, placeholder, name, state, setState }) => {
   );
 };
 
+// Export component
 export default Input;

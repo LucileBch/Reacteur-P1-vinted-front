@@ -78,7 +78,7 @@ const Header = ({
       />
 
       <p>Trier par prix</p>
-      <input type="checkbox" name="sort" onClick={handleSort} />
+      <input type="checkbox" name="sort" value={sort} onChange={handleSort} />
 
       <div>
         <p>Prix Min : </p>
@@ -119,4 +119,5 @@ const Header = ({
   );
 };
 
+// Export component
 export default Header;

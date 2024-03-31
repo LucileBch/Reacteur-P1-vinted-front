@@ -11,4 +11,5 @@ const Error = () => {
   );
 };
 
+// Export page
 export default Error;

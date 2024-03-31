@@ -32,7 +32,7 @@ const Offer = () => {
   // Fetch API datas with useEffect
   // Check server response
   //    If waiting for datas : display "loading"
-  //    Else : display page
+  //    Else : display content
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
@@ -84,4 +84,5 @@ const Offer = () => {
   );
 };
 
+// Export page
 export default Offer;
