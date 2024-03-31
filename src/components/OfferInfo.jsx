@@ -2,6 +2,9 @@
 // Import components
 import Button from "./Button";
 
+// Import assets
+import EmptyAvatar from "../assets/img/user-empty-avatar.svg";
+
 const OfferInfo = ({ infos }) => {
   return (
     <aside>
@@ -18,10 +21,18 @@ const OfferInfo = ({ infos }) => {
       <p>{infos.product_name}</p>
       <p>{infos.product_description}</p>
 
-      <img
-        src={infos.owner.account.avatar.secure_url}
-        alt="avatar de l'utilisateur"
-      />
+      {infos.owner.account.avatar ? (
+        <img
+          src={infos.owner.account.avatar.secure_url}
+          alt="avatar de l'utilisateur"
+        />
+      ) : (
+        <img
+          src={EmptyAvatar}
+          alt="avatar de l'utilisateur"
+          style={{ borderRadius: "100%", width: "50px" }}
+        />
+      )}
 
       <p>{infos.owner.username}</p>
       <Button text="Acheter" />
