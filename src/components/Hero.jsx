@@ -21,7 +21,7 @@ const Hero = () => {
         />
         <img className="hero__effect" src={Effect} alt="effet déchiré" />
       </div>
-      <Paper elevation={0} className="hero__content">
+      <Paper elevation={12} className="hero__content">
         <h1>Prêtes à faire du tri dans vos placards ?</h1>
         <Button text="Commencer à vendre" />
       </Paper>
