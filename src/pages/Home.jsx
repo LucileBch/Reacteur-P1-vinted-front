@@ -6,11 +6,15 @@ import axios from "axios";
 
 // Import components
 import Hero from "../components/Hero";
-import Card from "../components/Card";
+import OfferCard from "../components/OfferCard";
 import Button from "../components/Button";
 
 // MUI Imports
 import Container from "@mui/material/Container";
+import Box from "@mui/material/Container";
+
+// Style Imports
+import "../styles/Home.css";
 
 const Home = ({ sort, search, priceMin, priceMax }) => {
   // Fetch API datas with useEffect
@@ -64,17 +68,17 @@ const Home = ({ sort, search, priceMin, priceMax }) => {
       {isLoading === true ? (
         "Loading"
       ) : (
-        <section>
-          <Container maxWidth="lg">
-            <div style={{ display: "flex" }}>
+        <section className="offerdisplay">
+          <Container maxWidth="lg" className="container__offerdisplay">
+            <Box className="offerdisplay__grid">
               {data.offers.map((offer) => {
                 return (
                   <Link to={`/offers/${offer._id}`} key={offer._id}>
-                    <Card offer={offer} />
+                    <OfferCard offer={offer} />
                   </Link>
                 );
               })}
-            </div>
+            </Box>
 
             <div>
               <Button

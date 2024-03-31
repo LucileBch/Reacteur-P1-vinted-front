@@ -3,7 +3,7 @@
 .header__input--searchfield {
   border: none;
   background-color: var(--background-color);
-  color: var(--text-secondary-color);
+  color: #000000
   font-size: 1.6rem;
   width: 50%;
 }

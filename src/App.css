@@ -25,4 +25,14 @@ body {
 .MuiContainer-root {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 0;
+}
+
+h1 {
+  font-size: 3.4rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-primary-color);
 }

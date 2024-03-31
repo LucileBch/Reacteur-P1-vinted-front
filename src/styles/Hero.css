@@ -1,0 +1,31 @@
+/* ---------- HERO CSS Style Sheet ---------- */
+.hero {
+  position: relative;
+}
+
+.hero__img {
+  width: 100vw;
+  height: 455px;
+  object-fit: cover;
+}
+
+.hero__effect {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 80px;
+}
+
+.hero__content {
+  position: absolute;
+  top: 75px;
+  left: 330px;
+  width: 400px;
+  height: 280px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 3px;
+  gap: 3rem;
+}

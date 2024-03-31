@@ -10,9 +10,13 @@ const Button = ({ text, onClick, disabled }) => {
       ? "button button--logout"
       : "button button--fill";
   const displayButton = disabled === true && "hidde--button";
+  const startSale = text === "Commencer à vendre" && "button--sale";
 
   return (
-    <button onClick={onClick} className={`${buttonStyle} ${displayButton}`}>
+    <button
+      onClick={onClick}
+      className={`${buttonStyle} ${displayButton} ${startSale}`}
+    >
       {text}
     </button>
   );
