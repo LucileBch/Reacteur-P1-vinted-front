@@ -41,6 +41,14 @@ header {
   align-items: center;
 }
 
+.MuiSwitch-switchBase.Mui-checked {
+  color: #ffffff;
+}
+
+.MuiSwitch-SwitchBase {
+  color: var(--primary-color);
+}
+
 /* Range input */
 .header__filters--range {
   display: flex;

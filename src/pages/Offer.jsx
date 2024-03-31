@@ -1,13 +1,19 @@
 // ---------- OFFER Page ----------
-// Import packages
+// Packages Imports
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-// Import components
+// Components Imports
 import OfferInfo from "../components/OfferInfo";
+
+// MUI Imports
+import Container from "@mui/material/Container";
+
+// Style Imports
+import "../styles/Offer.css";
 
 // Responsive for Carousel
 const responsive = {
@@ -28,7 +34,7 @@ const responsive = {
   },
 };
 
-const Offer = () => {
+const Offer = ({ path }) => {
   // Fetch API datas with useEffect
   // Check server response
   //    If waiting for datas : display "loading"
@@ -36,6 +42,9 @@ const Offer = () => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
+
+  // Variables for style
+  const styleMain = path === "/offers" && "main__offer";
 
   const fetchData = async () => {
     try {
@@ -54,17 +63,18 @@ const Offer = () => {
   }, []);
 
   return (
-    <main>
+    <main className={styleMain}>
       {isLoading === true ? (
         "Loading"
       ) : (
-        <section>
-          <Carousel
-            swipeable={false}
-            draggable={false}
-            showDots={true}
-            responsive={responsive}
-          >
+        <section className="section__offer">
+          <Container className="offer__container" maxWidth="lg">
+            {/* <Carousel
+              swipeable={false}
+              draggable={false}
+              showDots={true}
+              responsive={responsive}
+            > */}
             {data.product_pictures.map((picture) => {
               return (
                 <img
@@ -75,9 +85,10 @@ const Offer = () => {
                 />
               );
             })}
-          </Carousel>
+            {/* </Carousel> */}
 
-          <OfferInfo infos={data} />
+            <OfferInfo infos={data} />
+          </Container>
         </section>
       )}
     </main>

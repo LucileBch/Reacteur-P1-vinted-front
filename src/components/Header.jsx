@@ -92,7 +92,7 @@ const Header = ({
             />
           </Box>
 
-          <Box className="header__filters">
+          <Box className="header__filters" page="offer">
             <Box className="header__filters--switch">
               <p>Trier par prix :</p>
               <Switch

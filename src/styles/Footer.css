@@ -3,8 +3,9 @@ footer {
   background-color: var(--background-color);
   font-size: 1.4rem;
   line-height: 3rem;
-  padding: 20px 0;
+  padding: 0 0 20px 0;
 }
+
 footer li {
   color: var(--text-secondary-color);
 }
@@ -20,6 +21,10 @@ footer li:hover {
   display: flex;
   justify-content: space-between;
   padding: 2rem 0;
+}
+
+.footer__nav {
+  border-top: 1px solid rgba(23, 23, 23, 0.08);
 }
 
 .footer__nav,
@@ -41,4 +46,9 @@ footer li:hover {
 
 .footer__icons--store {
   width: 250px;
+}
+
+.footer__icons--social:hover,
+.footer__icons--store:hover {
+  cursor: pointer;
 }

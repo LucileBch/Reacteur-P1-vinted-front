@@ -1,0 +1,12 @@
+/* ---------- OFFER PAGE CSS Style Sheet ---------- */
+.main__offer {
+  background-color: var(--background-color);
+}
+
+.section__offer {
+  padding: 3rem 0;
+}
+
+.offer__container {
+  display: flex;
+}

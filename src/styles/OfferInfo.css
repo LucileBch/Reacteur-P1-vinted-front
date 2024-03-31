@@ -1,0 +1,50 @@
+/* ---------- OFFERINFO CSS Style Sheet ---------- */
+aside {
+  background-color: #ffffff;
+  padding: 40px;
+  width: 50%;
+}
+
+.aside__details {
+  border-bottom: 1px solid var(--text-secondary-color);
+  li {
+    font-size: 1.4rem;
+    color: var(--text-secondary-color);
+  }
+
+  > ul {
+    padding: 20px 0;
+  }
+}
+
+.aside__details--product {
+  padding: 2px 0;
+}
+
+.aside__product {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-size: 1.6rem;
+  padding: 30px 0;
+  > p {
+    color: var(--text-secondary-color);
+  }
+}
+
+.aside__owner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 50px;
+  > p {
+    font-size: 1.6rem;
+  }
+}
+
+.aside__picture--avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 100%;
+}

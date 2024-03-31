@@ -63,7 +63,7 @@ function App() {
                 />
               }
             />
-            <Route path="/offers/:id" element={<Offer />} />
+            <Route path="/offers/:id" element={<Offer path="/offers" />} />
             <Route path="*" element={<Error />} />
           </Routes>
           <Footer />

@@ -18,7 +18,7 @@ const OfferCard = ({ offer }) => {
         ) : (
           <img src={EmptyAvatar} alt="avatar de l'utilisateur" />
         )}
-        <h2>{offer.owner.account.username}</h2>
+        <p>{offer.owner.account.username}</p>
       </Box>
 
       <img
