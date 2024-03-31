@@ -1,0 +1,9 @@
+/* ---------- INPUT CSS Style Sheet ---------- */
+/* Header Input Search Field */
+.header__input--searchfield {
+  border: none;
+  background-color: var(--background-color);
+  color: var(--text-secondary-color);
+  font-size: 1.6rem;
+  width: 50%;
+}

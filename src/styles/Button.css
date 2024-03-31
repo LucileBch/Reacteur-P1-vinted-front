@@ -1,0 +1,33 @@
+/* ---------- BUTTON CSS Style Sheet ---------- */
+.button {
+  border: 1px solid var(--primary-color);
+  border-radius: 0.5rem;
+  height: 35px;
+  outline: none;
+  width: 130px;
+  padding: 0.5rem 0;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button--outlined {
+  background-color: #ffffff;
+  color: var(--primary-color);
+}
+
+.button--fill {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.button--logout {
+  background-color: var(--secondary-color);
+  color: #ffffff;
+  border-color: var(--secondary-color);
+}
+
+.hidde--button {
+  display: none;
+}

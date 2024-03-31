@@ -9,6 +9,9 @@ import Hero from "../components/Hero";
 import Card from "../components/Card";
 import Button from "../components/Button";
 
+// MUI Imports
+import Container from "@mui/material/Container";
+
 const Home = ({ sort, search, priceMin, priceMax }) => {
   // Fetch API datas with useEffect
   // Check server response
@@ -62,29 +65,33 @@ const Home = ({ sort, search, priceMin, priceMax }) => {
         "Loading"
       ) : (
         <section>
-          <div style={{ display: "flex" }}>
-            {data.offers.map((offer) => {
-              return (
-                <Link to={`/offers/${offer._id}`} key={offer._id}>
-                  <Card offer={offer} />
-                </Link>
-              );
-            })}
-          </div>
+          <Container maxWidth="lg">
+            <div style={{ display: "flex" }}>
+              {data.offers.map((offer) => {
+                return (
+                  <Link to={`/offers/${offer._id}`} key={offer._id}>
+                    <Card offer={offer} />
+                  </Link>
+                );
+              })}
+            </div>
 
-          <div>
-            <Button
-              text="Previous"
-              onClick={handlePreviousPage}
-              disabled={page <= 1}
-            />
-            <span style={{ fontSize: "20px", fontWeight: "bold" }}>{page}</span>
-            <Button
-              text="Next"
-              onClick={handleNextPage}
-              disabled={page === maxPages}
-            />
-          </div>
+            <div>
+              <Button
+                text="Previous"
+                onClick={handlePreviousPage}
+                disabled={page <= 1}
+              />
+              <span style={{ fontSize: "20px", fontWeight: "bold" }}>
+                {page}
+              </span>
+              <Button
+                text="Next"
+                onClick={handleNextPage}
+                disabled={page === maxPages}
+              />
+            </div>
+          </Container>
         </section>
       )}
     </main>

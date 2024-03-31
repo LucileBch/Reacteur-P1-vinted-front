@@ -1,14 +1,21 @@
 // ---------- HEADER Component ----------
-// Import packages
+// Packages Imports
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
-// Import components
+// MUI Imports
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import Switch from "@mui/material/Switch";
+
+// Components Import
 import Button from "./Button";
 import Input from "./Input";
 
-// Import assets
+// Assets and styles Imports
 import Logo from "../assets/img/logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../styles/Header.css";
 
 const Header = ({
   setVisible,
@@ -49,8 +56,8 @@ const Header = ({
   };
 
   // Handle price sort
-  const handleSort = () => {
-    setSort(!sort);
+  const handleSort = (event) => {
+    setSort(event.target.checked);
   };
 
   // Handle price range
@@ -64,57 +71,78 @@ const Header = ({
   };
 
   return (
-    <header style={{ display: "flex" }}>
-      <Link to="/" onClick={handleLogo}>
-        <img src={Logo} alt="Logo de Vinted" style={{ width: "150px" }} />
-      </Link>
+    <header>
+      <Container className="header__container" maxWidth="lg">
+        <Box>
+          <Link to="/" onClick={handleLogo}>
+            <img className="header__logo" src={Logo} alt="Logo de Vinted" />
+          </Link>
+        </Box>
 
-      <Input
-        type="text"
-        placeholder="Rechercher des articles"
-        name="search"
-        setState={setSearch}
-        state={search}
-      />
+        <Box width={600}>
+          <Box className="header__input--search">
+            <FontAwesomeIcon icon="magnifying-glass" />
+            <Input
+              type="text"
+              placeholder="Rechercher des articles"
+              name="search"
+              setState={setSearch}
+              state={search}
+            />
+          </Box>
 
-      <p>Trier par prix</p>
-      <input type="checkbox" name="sort" value={sort} onChange={handleSort} />
+          <Box className="header__filters">
+            <Box className="header__filters--switch">
+              <p>Trier par prix :</p>
+              <Switch
+                checked={sort}
+                onChange={handleSort}
+                inputProps={{ "aria-label": "controlled" }}
+              />
+            </Box>
 
-      <div>
-        <p>Prix Min : </p>
-        <input
-          value={priceMin}
-          type="text"
-          onChange={() => {
-            handlePriceMin(event);
-          }}
-        />
-        <p>Prix Max : </p>
-        <input
-          value={priceMax}
-          type="text"
-          onChange={() => {
-            handlePriceMax(event);
-          }}
-        />
-      </div>
+            <Box className="header__filters--range">
+              <p>Prix Min : </p>
+              <input
+                value={priceMin}
+                type="text"
+                onChange={() => {
+                  handlePriceMin(event);
+                }}
+              />
+              <p>Prix Max : </p>
+              <input
+                value={priceMax}
+                type="text"
+                onChange={() => {
+                  handlePriceMax(event);
+                }}
+              />
+            </Box>
+          </Box>
+        </Box>
 
-      <Button
-        text="S'inscrire"
-        onClick={handleSignUp}
-        disabled={token ? true : false}
-      />
-      <Button
-        text="Se connecter"
-        onClick={handleLogin}
-        disabled={token ? true : false}
-      />
-      <Button
-        text="Se déconnecter"
-        onClick={handleLogout}
-        disabled={token ? false : true}
-      />
-      <Button text="Vends tes articles" />
+        <Box className="header__buttons">
+          <Box className="header__buttons--connect">
+            <Button
+              text="S'inscrire"
+              onClick={handleSignUp}
+              disabled={token ? true : false}
+            />
+            <Button
+              text="Se connecter"
+              onClick={handleLogin}
+              disabled={token ? true : false}
+            />
+          </Box>
+          <Button
+            text="Se déconnecter"
+            onClick={handleLogout}
+            disabled={token ? false : true}
+          />
+          <Button text="Vends tes articles" disabled={false} />
+        </Box>
+      </Container>
     </header>
   );
 };

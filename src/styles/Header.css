@@ -1,0 +1,57 @@
+/* ---------- HEADER CSS Style Sheet ---------- */
+/* Global Header rules */
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+/* Logo */
+.header__logo {
+  width: 105px;
+}
+
+/* Search input */
+.header__input--search {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 5px 10px;
+  width: 100%;
+  height: 40px;
+  background-color: var(--background-color);
+  color: var(--text-secondary-color);
+  border-radius: 5px;
+  font-size: 1.6rem;
+}
+
+/* Filter input */
+.header__filters {
+  display: flex;
+  align-items: center;
+}
+
+/* Switch input */
+.header__filters--switch {
+  display: flex;
+  align-items: center;
+}
+
+/* Range input */
+.header__filters--range {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Buttons */
+.header__buttons {
+  display: flex;
+  gap: 4rem;
+}
+
+.header__buttons--connect {
+  display: flex;
+  gap: 1rem;
+}

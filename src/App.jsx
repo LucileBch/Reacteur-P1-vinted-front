@@ -1,21 +1,27 @@
 // ---------- APP Routing Logic ----------
-// Import packages
+// Packages Imports
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
 
-// Import pages
+// Pages Imports
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Error from "./pages/Error";
 
-// Import components
+// Components Imports
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 
-// Import style
+// MUI Imports
+import { StyledEngineProvider } from "@mui/material/styles";
+
+// Assets and style Imports
 import "./App.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+library.add(faMagnifyingGlass);
 
 function App() {
   // States
@@ -28,50 +34,52 @@ function App() {
   const [priceMax, setPriceMax] = useState("");
 
   return (
-    <div style={{ position: "relative" }}>
-      <Router>
-        <Header
-          setVisible={setVisible}
-          token={token}
-          setToken={setToken}
-          setModalName={setModalName}
-          sort={sort}
-          setSort={setSort}
-          search={search}
-          setSearch={setSearch}
-          priceMin={priceMin}
-          setPriceMin={setPriceMin}
-          priceMax={priceMax}
-          setPriceMax={setPriceMax}
-        />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                sort={sort}
-                search={search}
-                priceMin={priceMin}
-                priceMax={priceMax}
-              />
-            }
-          />
-          <Route path="/offers/:id" element={<Offer />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
-        <Footer />
-
-        {visible && (
-          <Modal
-            modalName={modalName}
-            setModalName={setModalName}
-            visible={visible}
+    <StyledEngineProvider injectFirst>
+      <div style={{ position: "relative" }}>
+        <Router>
+          <Header
             setVisible={setVisible}
+            token={token}
             setToken={setToken}
+            setModalName={setModalName}
+            sort={sort}
+            setSort={setSort}
+            search={search}
+            setSearch={setSearch}
+            priceMin={priceMin}
+            setPriceMin={setPriceMin}
+            priceMax={priceMax}
+            setPriceMax={setPriceMax}
           />
-        )}
-      </Router>
-    </div>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  sort={sort}
+                  search={search}
+                  priceMin={priceMin}
+                  priceMax={priceMax}
+                />
+              }
+            />
+            <Route path="/offers/:id" element={<Offer />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+          <Footer />
+
+          {visible && (
+            <Modal
+              modalName={modalName}
+              setModalName={setModalName}
+              visible={visible}
+              setVisible={setVisible}
+              setToken={setToken}
+            />
+          )}
+        </Router>
+      </div>
+    </StyledEngineProvider>
   );
 }
 
