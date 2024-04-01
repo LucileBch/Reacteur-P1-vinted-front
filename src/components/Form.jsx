@@ -15,6 +15,7 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [avatar, setAvatar] = useState("");
 
   const navigate = useNavigate();
 
@@ -39,13 +40,21 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
       event.preventDefault();
       try {
         setErrorMessage("");
+
+        const formData = new FormData();
+        formData.append("email", email);
+        formData.append("username", name);
+        formData.append("password", password);
+        formData.append("newsletter", newsletter);
+        formData.append("avatar", avatar);
+
         const { data } = await axios.post(
           `https://lereacteur-vinted-api.herokuapp.com/user/signup`,
+          formData,
           {
-            email: email,
-            username: name,
-            password: password,
-            newsletter: newsletter,
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
           }
         );
         Cookies.set("userToken", data.token, { expires: 7 });
@@ -67,6 +76,15 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
       <div>
         <h2>S'incrire</h2>
         <form onSubmit={handleSubmit}>
+          {/* ICI  */}
+          <Input
+            type="file"
+            name="avatar"
+            placeholder="Ajouter un avatar"
+            state={avatar}
+            setState={setAvatar}
+          />
+
           <Input
             type="text"
             placeholder="Nom d'utilisateur"
