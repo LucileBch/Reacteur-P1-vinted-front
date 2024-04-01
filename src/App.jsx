@@ -1,12 +1,18 @@
 // ---------- APP Routing Logic ----------
 // Packages Imports
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
 
 // Pages Imports
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
+import Publish from "./pages/Publish";
 import Error from "./pages/Error";
 
 // Components Imports
@@ -68,6 +74,12 @@ function App() {
               }
             />
             <Route path="/offers/:id" element={<Offer path="/offers" />} />
+
+            <Route
+              path="/publish"
+              element={token && <Publish token={token} path="/publish" />}
+            />
+
             <Route path="*" element={<Error />} />
           </Routes>
           <Footer />

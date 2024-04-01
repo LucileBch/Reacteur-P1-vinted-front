@@ -141,7 +141,20 @@ const Header = ({
             onClick={handleLogout}
             disabled={token ? false : true}
           />
-          <Button text="Vends tes articles" disabled={false} />
+
+          {token ? (
+            <Link to="/publish">
+              <Button text="Vends tes articles" disabled={false} />
+            </Link>
+          ) : (
+            <Link to="/publish">
+              <Button
+                text="Vends tes articles"
+                onClick={handleLogin}
+                disabled={false}
+              />
+            </Link>
+          )}
         </Box>
       </Container>
     </header>

@@ -8,18 +8,23 @@ const Input = ({ type, placeholder, name, state, setState }) => {
     setState(event.target.value);
   };
 
+  // Handle File
+  const handleFile = (event) => {
+    setState(event.target.files[0]);
+  };
+
   const searchField =
     name === "search" ? "header__input--searchfield" : "random";
 
   return (
     <input
       className={searchField}
-      value={state}
+      value={type === "file" ? state.files : state}
       type={type}
       placeholder={placeholder}
       name={name}
       onChange={() => {
-        handleChange(event);
+        type === "file" ? handleFile(event) : handleChange(event);
       }}
     />
   );
