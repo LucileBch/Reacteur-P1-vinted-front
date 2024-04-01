@@ -3,6 +3,7 @@ aside {
   background-color: #ffffff;
   padding: 40px;
   width: 40%;
+  height: 600px;
 }
 
 .aside__details {
@@ -41,7 +42,7 @@ aside {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding-bottom: 70px;
+  padding-bottom: 50px;
   > p {
     font-size: 1.6rem;
   }

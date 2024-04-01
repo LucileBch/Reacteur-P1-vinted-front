@@ -7,7 +7,6 @@ import axios from "axios";
 // Import components
 import Hero from "../components/Hero";
 import OfferCard from "../components/OfferCard";
-import Button from "../components/Button";
 
 // MUI Imports
 import Container from "@mui/material/Container";
@@ -61,13 +60,6 @@ const Home = ({ sort, search, priceMin, priceMax }) => {
     setPage(value);
   };
 
-  // const handlePreviousPage = () => {
-  //   setPage(page - 1);
-  // };
-  // const handleNextPage = () => {
-  //   setPage(page + 1);
-  // };
-
   return (
     <main>
       <Hero />
@@ -94,20 +86,6 @@ const Home = ({ sort, search, priceMin, priceMax }) => {
                   onChange={handlePageChange}
                 />
               </Stack>
-
-              {/* <Button
-                text="Previous"
-                onClick={handlePreviousPage}
-                disabled={page <= 1}
-              />
-              <span style={{ fontSize: "20px", fontWeight: "bold" }}>
-                {page}
-              </span>
-              <Button
-                text="Next"
-                onClick={handleNextPage}
-                disabled={page === maxPages}
-              /> */}
             </div>
           </Container>
         </section>

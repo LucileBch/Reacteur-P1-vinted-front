@@ -11,6 +11,7 @@ import Switch from "@mui/material/Switch";
 // Components Import
 import Button from "./Button";
 import Input from "./Input";
+import PriceRange from "./PriceRange";
 
 // Assets and styles Imports
 import Logo from "../assets/img/logo.png";
@@ -96,7 +97,7 @@ const Header = ({
 
           <Box className="header__filters" page="offer">
             <Box className="header__filters--switch">
-              <p>Trier par prix :</p>
+              <p>Trier par prix:</p>
               <Switch
                 checked={sort}
                 onChange={handleSort}
@@ -105,21 +106,12 @@ const Header = ({
             </Box>
 
             <Box className="header__filters--range">
-              <p>Prix Min : </p>
-              <input
-                value={priceMin}
-                type="text"
-                onChange={() => {
-                  handlePriceMin(event);
-                }}
-              />
-              <p>Prix Max : </p>
-              <input
-                value={priceMax}
-                type="text"
-                onChange={() => {
-                  handlePriceMax(event);
-                }}
+              <p>Prix entre :</p>
+              <PriceRange
+                priceMin={priceMin}
+                setPriceMin={setPriceMin}
+                priceMax={priceMax}
+                setPriceMax={setPriceMax}
               />
             </Box>
           </Box>
