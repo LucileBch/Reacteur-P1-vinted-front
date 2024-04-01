@@ -8,6 +8,9 @@ import Cookies from "js-cookie";
 // Import components
 import Input from "./Input";
 
+// Styles Imports
+import "../styles/Form.css";
+
 const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
   // States
   const [name, setName] = useState("");
@@ -73,16 +76,21 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
     };
 
     return (
-      <div>
-        <h2>S'incrire</h2>
-        <form onSubmit={handleSubmit}>
-          <Input
-            type="file"
-            name="avatar"
-            placeholder="Ajouter un avatar"
-            state={avatar}
-            setState={setAvatar}
-          />
+      <>
+        <h2 className="form__title">S'inscrire</h2>
+        <form onSubmit={handleSubmit} className="form__container">
+          <div className="upload__avatar">
+            <label htmlFor="avatar">
+              <span>Ajouter un avatar</span>
+            </label>
+            <Input
+              id="avatar"
+              type="file"
+              name="avatar"
+              state={avatar}
+              setState={setAvatar}
+            />
+          </div>
 
           <Input
             type="text"
@@ -105,7 +113,7 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
             setState={setPassword}
             state={password}
           />
-          <div>
+          <div className="form__checkbox">
             <input
               type="checkbox"
               name="newsletter"
@@ -113,23 +121,24 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
             />
             <p>S'inscrire à notre newsletter</p>
           </div>
-          <p>
+          <p className="form__terms">
             En m'inscrivant je confirme avoir lu et accepté les Termes &
             Conditions et Politique de Confidentialité de Vinted. Je confirme
             avoir au moins 18 ans.
           </p>
-          <input type="submit" value="S'inscrire" />
+          <input className="form__submit" type="submit" value="S'inscrire" />
           {errorMessage && <p>{errorMessage}</p>}
         </form>
 
         <button
+          className="form__link"
           onClick={() => {
             handleSwitch(modalName);
           }}
         >
-          Tu as déjà un compte ? Connecte-toi!
+          Tu as déjà un compte ? Connecte-toi !
         </button>
-      </div>
+      </>
     );
   } else if (modalName === "login") {
     const handleSubmit = async (event) => {
@@ -153,9 +162,9 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
       }
     };
     return (
-      <div>
-        <h2>Se connecter</h2>
-        <form onSubmit={handleSubmit}>
+      <div class="modal__container">
+        <h2 className="form__title">Se connecter</h2>
+        <form onSubmit={handleSubmit} className="form__container">
           <Input
             type="email"
             placeholder="Email"
@@ -171,11 +180,12 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
             state={password}
           />
 
-          <input type="submit" value="Se connecter" />
+          <input className="form__submit" type="submit" value="Se connecter" />
           {errorMessage && <p>{errorMessage}</p>}
         </form>
 
         <button
+          className="form__link"
           onClick={() => {
             handleSwitch(modalName);
           }}

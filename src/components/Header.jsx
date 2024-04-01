@@ -64,16 +64,6 @@ const Header = ({
     setSort(event.target.checked);
   };
 
-  // Handle price range
-  const handlePriceMin = (event) => {
-    const value = Number(event.target.value);
-    setPriceMin(value);
-  };
-  const handlePriceMax = (event) => {
-    const value = Number(event.target.value);
-    setPriceMax(value);
-  };
-
   return (
     <header>
       <Container className="header__container" maxWidth="lg">

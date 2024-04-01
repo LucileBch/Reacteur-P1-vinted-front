@@ -10,6 +10,9 @@ import Input from "../components/Input";
 // MUI Imports
 import Container from "@mui/material/Container";
 
+// Styles Imports
+import "../styles/Publish.css";
+
 const Publish = ({ token }) => {
   // States
   const [title, setTitle] = useState("");
@@ -59,104 +62,125 @@ const Publish = ({ token }) => {
   };
 
   return (
-    <Container maxWidth="lg">
-      <h1>Vends ton article</h1>
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "60%",
-          gap: "20px",
-        }}
-      >
-        <label htmlFor="picture">Ajouter une photo</label>
-        <Input
-          type="file"
-          name="picture"
-          placeholder="Ajouter une photo"
-          state={picture}
-          setState={setPicture}
-        />
+    <main className="publish__main">
+      <Container maxWidth="lg">
+        <h1>Vends ton article</h1>
+        <form onSubmit={handleSubmit} className="publish__form">
+          <div className="publish__form--picture">
+            <div className="upload__picture">
+              <label htmlFor="picture">Ajouter une photo</label>
+              <Input
+                type="file"
+                name="picture"
+                placeholder="Ajouter une photo"
+                state={picture}
+                setState={setPicture}
+              />
+            </div>
+          </div>
 
-        <label htmlFor="title">Titre</label>
-        <Input
-          type="text"
-          placeholder="ex: Chemise Sézane verte"
-          name="title"
-          state={title}
-          setState={setTitle}
-        />
+          <div className="publish__form--section">
+            <div className="publish__form--input">
+              <label htmlFor="title">Titre</label>
+              <Input
+                type="text"
+                placeholder="ex: Chemise Sézane verte"
+                name="title"
+                state={title}
+                setState={setTitle}
+              />
+            </div>
+            <div className="publish__form--input">
+              <label htmlFor="description">Décris ton article</label>
+              <Input
+                type="text"
+                placeholder="ex: porté quelque fois, taille correctement"
+                name="description"
+                state={description}
+                setState={setDescription}
+              />
+            </div>
+          </div>
 
-        <label htmlFor="description">Décris ton article</label>
-        <Input
-          type="text"
-          placeholder="ex: porté quelque fois, taille correctement"
-          name="description"
-          state={description}
-          setState={setDescription}
-        />
+          <div className="publish__form--section">
+            <div className="publish__form--input">
+              <label htmlFor="brand">Marque</label>
+              <Input
+                type="text"
+                placeholder="ex: Zara"
+                name="brand"
+                state={brand}
+                setState={setBrand}
+              />
+            </div>
 
-        <label htmlFor="brand">Marque</label>
-        <Input
-          type="text"
-          placeholder="ex: Zara"
-          name="brand"
-          state={brand}
-          setState={setBrand}
-        />
+            <div className="publish__form--input">
+              <label htmlFor="size">Taille</label>
+              <Input
+                type="text"
+                placeholder="ex: L / 40 / 12"
+                name="brand"
+                state={size}
+                setState={setSize}
+              />
+            </div>
 
-        <label htmlFor="size">Taille</label>
-        <Input
-          type="text"
-          placeholder="ex: L / 40 / 12"
-          name="brand"
-          state={size}
-          setState={setSize}
-        />
+            <div className="publish__form--input">
+              <label htmlFor="color">Couleur</label>
+              <Input
+                type="text"
+                placeholder="ex: Fushia"
+                name="color"
+                state={color}
+                setState={setColor}
+              />
+            </div>
 
-        <label htmlFor="color">Couleur</label>
-        <Input
-          type="text"
-          placeholder="ex: Fushia"
-          name="color"
-          state={color}
-          setState={setColor}
-        />
+            <div className="publish__form--input">
+              <label htmlFor="condition">État</label>
+              <Input
+                type="text"
+                placeholder="ex: Neuf avec étiquette"
+                name="condition"
+                state={condition}
+                setState={setCondition}
+              />
+            </div>
 
-        <label htmlFor="condition">État</label>
-        <Input
-          type="text"
-          placeholder="ex: Neuf avec étiquette"
-          name="condition"
-          state={condition}
-          setState={setCondition}
-        />
+            <div className="publish__form--input">
+              <label htmlFor="city">Lieu</label>
+              <Input
+                type="text"
+                placeholder="ex: Paris"
+                name="city"
+                state={city}
+                setState={setCity}
+              />
+            </div>
+          </div>
 
-        <label htmlFor="city">Lieu</label>
-        <Input
-          type="text"
-          placeholder="ex: Paris"
-          name="city"
-          state={city}
-          setState={setCity}
-        />
+          <div className="publish__form--section">
+            <div className="publish__form--input">
+              <label htmlFor="price">Prix</label>
+              <Input
+                type="number"
+                placeholder="ex: 0,00 €"
+                name="price"
+                state={price}
+                setState={setPrice}
+              />
+            </div>
 
-        <label htmlFor="price">Prix</label>
-        <Input
-          type="number"
-          placeholder="ex: 0,00 €"
-          name="price"
-          state={price}
-          setState={setPrice}
-        />
+            <div className="publish__form--inputcheck">
+              <input type="checkbox" name="exchange" />
+              <p>Je suis intéressé(e) par les échanges</p>
+            </div>
+          </div>
 
-        <input type="checkbox" name="exchange" />
-        <p>Je suis intéressé(e) par les échanges</p>
-
-        <input type="submit" value="Ajouter" />
-      </form>
-    </Container>
+          <input className="form__publish" type="submit" value="Ajouter" />
+        </form>
+      </Container>
+    </main>
   );
 };
 

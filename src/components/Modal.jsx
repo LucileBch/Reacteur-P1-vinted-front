@@ -1,31 +1,20 @@
 // ---------- MODAL Component ----------
-// Import component
+// Component Imports
 import Form from "./Form";
+
+// Styles Imports
+import "../styles/Modal.css";
 
 const Modal = ({ modalName, setModalName, visible, setVisible, setToken }) => {
   return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100vh",
-        position: "absolute",
-        top: "100px",
-        left: "0",
-        backgroundColor: "#D3D3D3",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div>
-        <Form
-          modalName={modalName}
-          setModalName={setModalName}
-          setToken={setToken}
-          visible={visible}
-          setVisible={setVisible}
-        />
-      </div>
+    <div className="modal__container">
+      <Form
+        modalName={modalName}
+        setModalName={setModalName}
+        setToken={setToken}
+        visible={visible}
+        setVisible={setVisible}
+      />
     </div>
   );
 };

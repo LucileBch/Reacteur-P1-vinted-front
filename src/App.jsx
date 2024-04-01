@@ -38,9 +38,18 @@ function App() {
   const [priceMin, setPriceMin] = useState("");
   const [priceMax, setPriceMax] = useState("");
 
+  // Disable scroll when modal opened
+  if (visible === true) {
+    window.onscroll = function () {
+      window.scrollTo(0, 0);
+    };
+  } else {
+    window.onscroll = function () {};
+  }
+
   return (
     <StyledEngineProvider injectFirst>
-      <div style={{ position: "relative" }}>
+      <div className="modal__parent">
         <Router>
           <Header
             setVisible={setVisible}

@@ -1,0 +1,66 @@
+/* ---------- FORM CSS Style Sheet ---------- */
+.form__container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 20%;
+}
+
+.form__title {
+  margin-bottom: 20px;
+}
+
+.upload__avatar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 15px 0;
+}
+
+.upload__avatar:hover {
+  cursor: pointer;
+}
+
+.form__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.6rem;
+  color: var(--text-secondary-color);
+  > input {
+    border-radius: 5px;
+    transform: scale(2);
+  }
+}
+
+.form__terms {
+  text-align: justify;
+  color: var(--text-secondary-color);
+  font-size: 1.4rem;
+}
+
+.form__submit {
+  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border-radius: 0.5rem;
+  outline: none;
+  padding: 1rem 0;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.form__link {
+  border: none;
+  background-color: #ffffff;
+  color: var(--primary-color);
+}
+
+.form__link:hover {
+  cursor: pointer;
+}
