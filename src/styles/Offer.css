@@ -1,12 +1,13 @@
 /* ---------- OFFER PAGE CSS Style Sheet ---------- */
 .main__offer {
-  background-color: var(--background-color);
+  background-color: #ebedee;
 }
 
 .section__offer {
-  padding: 3rem 0;
+  padding: 6rem 0;
 }
 
 .offer__container {
   display: flex;
+  justify-content: space-around;
 }

@@ -57,7 +57,6 @@ const Home = ({ sort, search, priceMin, priceMax }) => {
   }, [page, sort, search, priceMin, priceMax]);
 
   // Handle change of page
-
   const handlePageChange = (event, value) => {
     setPage(value);
   };

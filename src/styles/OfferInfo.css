@@ -2,7 +2,7 @@
 aside {
   background-color: #ffffff;
   padding: 40px;
-  width: 50%;
+  width: 40%;
 }
 
 .aside__details {
@@ -18,7 +18,12 @@ aside {
 }
 
 .aside__details--product {
+  display: flex;
   padding: 2px 0;
+}
+
+.aside__details--product > span {
+  flex: 1;
 }
 
 .aside__product {

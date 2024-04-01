@@ -20,8 +20,12 @@ import { StyledEngineProvider } from "@mui/material/styles";
 // Assets and style Imports
 import "./App.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-library.add(faMagnifyingGlass);
+import {
+  faMagnifyingGlass,
+  faAngleRight,
+  faAngleLeft,
+} from "@fortawesome/free-solid-svg-icons";
+library.add(faMagnifyingGlass, faAngleRight, faAngleLeft);
 
 function App() {
   // States

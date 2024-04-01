@@ -1,0 +1,44 @@
+/* ---------- CAROUSEL CSS Style Sheet ---------- */
+.offer__carousel {
+  position: relative;
+  width: 40%;
+}
+
+.carousel__icons {
+  font-size: 2.5rem;
+}
+
+.carousel__icons--left,
+.carousel__icons--right {
+  position: absolute;
+  top: 50%;
+}
+
+.carousel__icons--left {
+  left: 5%;
+}
+
+.carousel__icons--right {
+  right: 5%;
+}
+
+.carousel__icons--left:hover,
+.carousel__icons--right:hover {
+  cursor: pointer;
+}
+
+.carousel__image {
+  display: flex;
+  flex-direction: column;
+  > img {
+    height: 600px;
+    object-fit: cover;
+  }
+  > span {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+}

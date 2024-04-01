@@ -4,6 +4,7 @@ import Button from "./Button";
 
 // MUI Imports
 import Paper from "@mui/material/Card";
+import Container from "@mui/material/Container";
 
 // Assets and Style Imports
 import HeroImage from "../assets/img/banner-hero.jpg";
@@ -21,10 +22,12 @@ const Hero = () => {
         />
         <img className="hero__effect" src={Effect} alt="effet déchiré" />
       </div>
-      <Paper elevation={12} className="hero__content">
-        <h1>Prêtes à faire du tri dans vos placards ?</h1>
-        <Button text="Commencer à vendre" />
-      </Paper>
+      <Container maxWidth="lg">
+        <Paper elevation={12} className="hero__content">
+          <h1>Prêtes à faire du tri dans vos placards ?</h1>
+          <Button text="Commencer à vendre" />
+        </Paper>
+      </Container>
     </section>
   );
 };
