@@ -1,6 +1,6 @@
 // ---------- HEADER Component ----------
 // Packages Imports
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 // MUI Imports
@@ -42,9 +42,11 @@ const Header = ({
   };
 
   // Handle logout button
+  const navigate = useNavigate();
   const handleLogout = () => {
     Cookies.remove("userToken");
     setToken("");
+    navigate("/");
   };
 
   // Handle click on Logo

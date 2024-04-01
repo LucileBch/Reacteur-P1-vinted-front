@@ -76,7 +76,6 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
       <div>
         <h2>S'incrire</h2>
         <form onSubmit={handleSubmit}>
-          {/* ICI  */}
           <Input
             type="file"
             name="avatar"
