@@ -54,8 +54,6 @@ const Publish = ({ token, filterDisplay, setFilterDisplay }) => {
       );
 
       navigate(`/offers/${response.data._id}`);
-
-      console.log(response.data);
     } catch (error) {
       console.log(error.response.data);
     }

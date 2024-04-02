@@ -14,7 +14,7 @@ import Container from "@mui/material/Container";
 // Style Imports
 import "../styles/Offer.css";
 
-const Offer = ({ path }) => {
+const Offer = ({ filterDisplay, setFilterDisplay }) => {
   // Fetch API datas with useEffect
   // Check server response
   //    If waiting for datas : display "loading"
@@ -22,9 +22,6 @@ const Offer = ({ path }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
-
-  // Variables for style
-  const styleMain = path === "/offers" && "main__offer";
 
   const fetchData = async () => {
     try {
@@ -42,8 +39,12 @@ const Offer = ({ path }) => {
     fetchData();
   }, []);
 
+  if (filterDisplay === true) {
+    setFilterDisplay(false);
+  }
+
   return (
-    <main className={styleMain}>
+    <main className="main__offer">
       {isLoading === true ? (
         "Loading"
       ) : (

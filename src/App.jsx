@@ -80,7 +80,15 @@ function App() {
                 />
               }
             />
-            <Route path="/offers/:id" element={<Offer path="/offers" />} />
+            <Route
+              path="/offers/:id"
+              element={
+                <Offer
+                  filterDisplay={filterDisplay}
+                  setFilterDisplay={setFilterDisplay}
+                />
+              }
+            />
 
             <Route
               path="/publish"
