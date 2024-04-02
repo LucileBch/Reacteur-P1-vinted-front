@@ -74,10 +74,14 @@ function App() {
               path="/"
               element={
                 <Home
+                  token={token}
                   sort={sort}
                   search={search}
                   priceMin={priceMin}
                   priceMax={priceMax}
+                  setVisible={setVisible}
+                  setModalName={setModalName}
+                  setFilterDisplay={setFilterDisplay}
                 />
               }
             />

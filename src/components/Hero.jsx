@@ -1,4 +1,7 @@
 // ---------- HERO Component ----------
+// Packages Imports
+import { Link } from "react-router-dom";
+
 // Components Imports
 import Button from "./Button";
 
@@ -11,7 +14,13 @@ import HeroImage from "../assets/img/banner-hero.jpg";
 import Effect from "../assets/img/tear.svg";
 import "../styles/Hero.css";
 
-const Hero = () => {
+const Hero = ({ token, setVisible, setModalName, setFilterDisplay }) => {
+  const handleLogin = () => {
+    setVisible(true);
+    setModalName("login");
+    setFilterDisplay(false);
+  };
+
   return (
     <section className="hero">
       <div>
@@ -25,7 +34,16 @@ const Hero = () => {
       <Container maxWidth="lg">
         <Paper elevation={12} className="hero__content">
           <h1>Prêtes à faire du tri dans vos placards ?</h1>
-          <Button text="Commencer à vendre" />
+
+          {token ? (
+            <Link to="/publish">
+              <Button text="Commencer à vendre" />
+            </Link>
+          ) : (
+            <Link to="/publish">
+              <Button text="Commencer à vendre" onClick={handleLogin} />
+            </Link>
+          )}
         </Paper>
       </Container>
     </section>

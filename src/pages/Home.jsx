@@ -17,7 +17,16 @@ import Stack from "@mui/material/Stack";
 // Style Imports
 import "../styles/Home.css";
 
-const Home = ({ sort, search, priceMin, priceMax }) => {
+const Home = ({
+  token,
+  sort,
+  search,
+  priceMin,
+  priceMax,
+  setVisible,
+  setModalName,
+  setFilterDisplay,
+}) => {
   // Fetch API datas with useEffect
   // Check server response
   //    If waiting for datas : display "loading"
@@ -62,7 +71,12 @@ const Home = ({ sort, search, priceMin, priceMax }) => {
 
   return (
     <main>
-      <Hero />
+      <Hero
+        token={token}
+        setVisible={setVisible}
+        setModalName={setModalName}
+        setFilterDisplay={setFilterDisplay}
+      />
       {isLoading === true ? (
         "Loading"
       ) : (
