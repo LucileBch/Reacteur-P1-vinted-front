@@ -1,0 +1,54 @@
+/* ---------- CHECKOUTFORM CSS Style Sheet ---------- */
+.payment__main {
+  background-color: #ebedee;
+  padding: 60px 0;
+}
+
+.payment__container {
+  display: flex;
+  justify-content: center;
+}
+
+.payment__frame {
+  background-color: #ffffff;
+  padding: 40px;
+  > h3 {
+    margin-bottom: 30px;
+    color: var(--text-secondary-color);
+    font-size: 1.8rem;
+  }
+  p {
+    font-size: 1.6rem;
+  }
+}
+
+.price__infos {
+  border-bottom: 1px solid var(--background-color);
+}
+
+.price__infos--line {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  color: var(--text-secondary-color);
+}
+
+.price__infos--line2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.price__infos--last {
+  padding: 20px 0;
+  text-align: justify;
+  > span {
+    font-weight: bold;
+  }
+}
+
+.payment__form {
+  padding-top: 30px;
+}

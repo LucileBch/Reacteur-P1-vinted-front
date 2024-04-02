@@ -8,6 +8,7 @@ import Cookies from "js-cookie";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
 import Error from "./pages/Error";
 
 // Components Imports
@@ -102,7 +103,15 @@ function App() {
                 )
               }
             />
-
+            <Route
+              path="/payment"
+              element={
+                <Payment
+                  filterDisplay={filterDisplay}
+                  setFilterDisplay={setFilterDisplay}
+                />
+              }
+            />
             <Route path="*" element={<Error />} />
           </Routes>
           <Footer />

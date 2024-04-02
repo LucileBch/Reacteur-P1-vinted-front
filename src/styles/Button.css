@@ -4,7 +4,7 @@
   border-radius: 0.5rem;
   outline: none;
   width: 130px;
-  padding: 1dvb 0;
+  padding: 10px 0;
 }
 
 .button:hover {
@@ -39,4 +39,10 @@
 .button--buy {
   font-size: 1.6rem;
   width: 100%;
+}
+
+.button--pay {
+  margin: 20px 0;
+  width: 100%;
+  font-size: 1.6rem;
 }

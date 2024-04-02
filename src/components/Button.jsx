@@ -13,11 +13,12 @@ const Button = ({ text, onClick, disabled }) => {
   const startSale = text === "Commencer à vendre" && "button--sale";
   const buy = text === "Acheter" && "button--buy";
   const sell = text === "Vends tes articles" && "button-sell";
+  const pay = text === "Pay" && "button--pay";
 
   return (
     <button
       onClick={onClick}
-      className={`${buttonStyle} ${displayButton} ${startSale} ${buy} ${sell}`}
+      className={`${buttonStyle} ${displayButton} ${startSale} ${buy} ${sell} ${pay}`}
     >
       {text}
     </button>

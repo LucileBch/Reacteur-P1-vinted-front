@@ -1,4 +1,7 @@
 // ---------- OFFERINFO Component ----------
+// Packages Imports
+import { Link } from "react-router-dom";
+
 // Components Imports
 import Button from "./Button";
 
@@ -27,25 +30,31 @@ const OfferInfo = ({ infos }) => {
         <h3>{infos.product_name}</h3>
         <p>{infos.product_description}</p>
       </div>
-
-      <div className="aside__owner">
-        {infos.owner.account.avatar ? (
-          <img
-            className="aside__picture--avatar"
-            src={infos.owner.account.avatar.secure_url}
-            alt="avatar de l'utilisateur"
-          />
-        ) : (
-          <img
-            className="aside__picture--avatar"
-            src={EmptyAvatar}
-            alt="avatar de l'utilisateur"
-            style={{ borderRadius: "100%", width: "50px" }}
-          />
-        )}
-        <p>{infos.owner.account.username}</p>
+      <div>
+        <div className="aside__owner">
+          {infos.owner.account.avatar ? (
+            <img
+              className="aside__picture--avatar"
+              src={infos.owner.account.avatar.secure_url}
+              alt="avatar de l'utilisateur"
+            />
+          ) : (
+            <img
+              className="aside__picture--avatar"
+              src={EmptyAvatar}
+              alt="avatar de l'utilisateur"
+              style={{ borderRadius: "100%", width: "50px" }}
+            />
+          )}
+          <p>{infos.owner.account.username}</p>
+        </div>
+        <Link
+          to="/payment"
+          state={{ title: infos.product_name, price: infos.product_price }}
+        >
+          <Button text="Acheter" />
+        </Link>
       </div>
-      <Button text="Acheter" />
     </aside>
   );
 };
