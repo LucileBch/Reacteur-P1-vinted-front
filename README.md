@@ -9,7 +9,7 @@ Hosted on Netlify : https://reacteur-training-tripadvisor.netlify.app/
 - [x] **React**
 - [x] Few **React Mui** components
 - [ ] **Responsive** : TO BE DONE (BreakPoints 1184px - 1024px - 768px - 568px)
-- [ ] Backend **Node JS** : https://github.com/LucileBch/Reacteur-P1-vinted.git -- TO BE CONNECTED, for now connected to Le Reacteur API
+- [x] Backend **Node JS** : https://github.com/LucileBch/Reacteur-P1-vinted.git -- TO BE CONNECTED, for now connected to Le Reacteur API
 
 ## Content
 
