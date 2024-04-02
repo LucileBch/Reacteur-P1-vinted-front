@@ -14,7 +14,13 @@ import Container from "@mui/material/Container";
 // Style Imports
 import "../styles/Offer.css";
 
-const Offer = ({ filterDisplay, setFilterDisplay }) => {
+const Offer = ({
+  token,
+  setVisible,
+  setModalName,
+  filterDisplay,
+  setFilterDisplay,
+}) => {
   // Fetch API datas with useEffect
   // Check server response
   //    If waiting for datas : display "loading"
@@ -51,7 +57,13 @@ const Offer = ({ filterDisplay, setFilterDisplay }) => {
         <section className="section__offer">
           <Container className="offer__container" maxWidth="lg">
             <Carousel pictures={data.product_pictures} data={data} />
-            <OfferInfo infos={data} />
+            <OfferInfo
+              infos={data}
+              token={token}
+              setVisible={setVisible}
+              setModalName={setModalName}
+              setFilterDisplay={setFilterDisplay}
+            />
           </Container>
         </section>
       )}

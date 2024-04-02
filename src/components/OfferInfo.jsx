@@ -9,7 +9,19 @@ import Button from "./Button";
 import EmptyAvatar from "../assets/img/user-empty-avatar.svg";
 import "../styles/OfferInfo.css";
 
-const OfferInfo = ({ infos }) => {
+const OfferInfo = ({
+  infos,
+  token,
+  setVisible,
+  setModalName,
+  setFilterDisplay,
+}) => {
+  const handleLogin = () => {
+    setVisible(true);
+    setModalName("login");
+    setFilterDisplay(false);
+  };
+
   return (
     <aside>
       <div className="aside__details">
@@ -48,12 +60,22 @@ const OfferInfo = ({ infos }) => {
           )}
           <p>{infos.owner.account.username}</p>
         </div>
-        <Link
-          to="/payment"
-          state={{ title: infos.product_name, price: infos.product_price }}
-        >
-          <Button text="Acheter" />
-        </Link>
+
+        {token ? (
+          <Link
+            to="/payment"
+            state={{ title: infos.product_name, price: infos.product_price }}
+          >
+            <Button text="Acheter" />
+          </Link>
+        ) : (
+          <Link
+            to="/payment"
+            state={{ title: infos.product_name, price: infos.product_price }}
+          >
+            <Button text="Acheter" onClick={handleLogin} />
+          </Link>
+        )}
       </div>
     </aside>
   );

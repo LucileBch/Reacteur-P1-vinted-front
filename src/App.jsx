@@ -89,6 +89,9 @@ function App() {
               path="/offers/:id"
               element={
                 <Offer
+                  token={token}
+                  setVisible={setVisible}
+                  setModalName={setModalName}
                   filterDisplay={filterDisplay}
                   setFilterDisplay={setFilterDisplay}
                 />
