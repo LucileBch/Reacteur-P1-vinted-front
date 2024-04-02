@@ -18,6 +18,7 @@ Hosted on Netlify : https://reacteur-training-vinted.netlify.app/
   - Home Page
   - Offer Page
   - Publish Page
+  - Payment Page
   - Error Page
 
 - Modals :
