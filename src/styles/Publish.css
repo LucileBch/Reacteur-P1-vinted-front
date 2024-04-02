@@ -30,9 +30,7 @@
   border: 2px solid var(--primary-color);
   border-radius: 5px;
   padding: 15px;
-  /* > input {
-    display: none;
-  } */
+  cursor: pointer;
 }
 
 .upload__picture--display {

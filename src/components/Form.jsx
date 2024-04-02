@@ -91,7 +91,12 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
           <label htmlFor="avatar" className="upload__avatar">
             Ajouter un avatar
           </label>
-          <Input id="avatar" type="file" state={avatar} setState={setAvatar} />
+          <Input
+            name="avatar"
+            type="file"
+            state={avatar}
+            setState={setAvatar}
+          />
           {/* </div> */}
 
           <Input

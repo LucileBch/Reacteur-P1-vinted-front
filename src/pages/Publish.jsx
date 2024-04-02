@@ -67,23 +67,25 @@ const Publish = ({ token }) => {
         <h1>Vends ton article</h1>
         <form onSubmit={handleSubmit} className="publish__form">
           <div className="publish__form--picture">
-            <div className="upload__picture">
-              {picture && (
-                <img
-                  className="upload__picture--display"
-                  src={URL.createObjectURL(picture)}
-                  alt="produit"
-                />
-              )}
-              <label htmlFor="picture">Ajouter une photo</label>
-              <Input
-                type="file"
-                name="picture"
-                placeholder="Ajouter une photo"
-                state={picture}
-                setState={setPicture}
+            {/* <div className="upload__picture"> */}
+            {picture && (
+              <img
+                className="upload__picture--display"
+                src={URL.createObjectURL(picture)}
+                alt="produit"
               />
-            </div>
+            )}
+            <label htmlFor="picture" className="upload__picture">
+              Ajouter une photo
+            </label>
+            <Input
+              type="file"
+              name="picture"
+              placeholder="Ajouter une photo"
+              state={picture}
+              setState={setPicture}
+            />
+            {/* </div> */}
           </div>
 
           <div className="publish__form--section">

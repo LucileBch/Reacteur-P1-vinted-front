@@ -20,6 +20,7 @@ const Input = ({ type, placeholder, name, state, setState }) => {
 
   return (
     <input
+      id={name}
       className={`${searchField} ${textInput}`}
       value={type === "file" ? state.files : state}
       type={type}
