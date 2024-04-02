@@ -4,7 +4,7 @@
 
 **Vinted copy website** made in context of training at [@Le Reacteur](https://github.com/lereacteur) bootcamp.
 
-Hosted on Netlify : https://reacteur-training-tripadvisor.netlify.app/
+Hosted on Netlify : https://reacteur-training-vinted.netlify.app/
 
 - [x] **React**
 - [x] Few **React Mui** components
