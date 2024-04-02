@@ -54,7 +54,7 @@ const CheckoutForm = ({ title, price }) => {
         "https://lereacteur-vinted-api.herokuapp.com/v2/payment",
         {
           title: title,
-          price: price,
+          amount: price,
         }
       );
       const clientSecret = response.data.client_secret;
@@ -90,6 +90,15 @@ const CheckoutForm = ({ title, price }) => {
     }
   };
 
+  // Calcul
+  let priceProtection = price / 10;
+  let priceTransport = price / 5;
+
+  let total =
+    Number((price * 100).toFixed(0)) +
+    Number((priceProtection * 100).toFixed(0)) +
+    Number((priceTransport * 100).toFixed(0));
+
   return paymentIsDone ? (
     <Container maxWidth="lg">
       <p>Merci pour votre achat</p>
@@ -104,23 +113,26 @@ const CheckoutForm = ({ title, price }) => {
               <span>Commande</span> <span>{price.toFixed(2)} €</span>
             </p>
             <p className="price__infos--line">
-              <span>Frais protection acheteurs</span> <span>0.40 €</span>
+              <span>Frais protection acheteurs</span>{" "}
+              <span>{priceProtection.toFixed(2)} €</span>
             </p>
             <p className="price__infos--line">
-              <span>Frais de port</span> <span>0.80 €</span>
+              <span>Frais de port</span>{" "}
+              <span>{priceTransport.toFixed(2)} €</span>
             </p>
           </div>
 
           <div className="price__infos">
             <p className="price__infos--line2">
-              <span>Total</span> <span>{(price + 0.4 + 0.8).toFixed(2)} €</span>
+              <span>Total</span> <span>{total / 100} €</span>
             </p>
             <div>
               <p className="price__infos--last">
                 Il ne vous reste plus qu'un étape pour vous offrir{" "}
                 <span>{title}</span>.<br />
-                Vous allez payer <span>{(price + 0.4 + 0.8).toFixed(2)}</span> €
-                (frais de protection et frais de port inclus).
+                Vous allez payer{" "}
+                <span>{Number((price + 0.4 + 0.8).toFixed(2))}</span> € (frais
+                de protection et frais de port inclus).
               </p>
             </div>
           </div>
