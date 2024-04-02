@@ -17,11 +17,10 @@ const Input = ({ type, placeholder, name, state, setState }) => {
   const textInput =
     (name === "username" || name === "email" || name === "password") &&
     "form__input";
-  const uploadStyle = name === "avatar" && "upload__button";
 
   return (
     <input
-      className={`${searchField} ${textInput} ${uploadStyle}`}
+      className={`${searchField} ${textInput}`}
       value={type === "file" ? state.files : state}
       type={type}
       placeholder={placeholder}

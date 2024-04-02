@@ -60,6 +60,7 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
             },
           }
         );
+
         Cookies.set("userToken", data.token, { expires: 7 });
         setToken(data.token);
         setVisible(!visible);
@@ -79,18 +80,19 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
       <>
         <h2 className="form__title">S'inscrire</h2>
         <form onSubmit={handleSubmit} className="form__container">
-          <div className="upload__avatar">
-            <label htmlFor="avatar">
-              <span>Ajouter un avatar</span>
-            </label>
-            <Input
-              id="avatar"
-              type="file"
-              name="avatar"
-              state={avatar}
-              setState={setAvatar}
+          {/* <div className="upload__avatar"> */}
+          {avatar && (
+            <img
+              className="upload__avatar--display"
+              src={URL.createObjectURL(avatar)}
+              alt="avatar"
             />
-          </div>
+          )}
+          <label htmlFor="avatar" className="upload__avatar">
+            Ajouter un avatar
+          </label>
+          <Input id="avatar" type="file" state={avatar} setState={setAvatar} />
+          {/* </div> */}
 
           <Input
             type="text"
@@ -127,7 +129,7 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
             avoir au moins 18 ans.
           </p>
           <input className="form__submit" type="submit" value="S'inscrire" />
-          {errorMessage && <p>{errorMessage}</p>}
+          {errorMessage && <p className="form__error">{errorMessage}</p>}
         </form>
 
         <button
@@ -162,7 +164,7 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
       }
     };
     return (
-      <div class="modal__container">
+      <div className="modal__container">
         <h2 className="form__title">Se connecter</h2>
         <form onSubmit={handleSubmit} className="form__container">
           <Input
@@ -181,7 +183,7 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
           />
 
           <input className="form__submit" type="submit" value="Se connecter" />
-          {errorMessage && <p>{errorMessage}</p>}
+          {errorMessage && <p className="form__error">{errorMessage}</p>}
         </form>
 
         <button

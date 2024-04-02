@@ -68,6 +68,13 @@ const Publish = ({ token }) => {
         <form onSubmit={handleSubmit} className="publish__form">
           <div className="publish__form--picture">
             <div className="upload__picture">
+              {picture && (
+                <img
+                  className="upload__picture--display"
+                  src={URL.createObjectURL(picture)}
+                  alt="produit"
+                />
+              )}
               <label htmlFor="picture">Ajouter une photo</label>
               <Input
                 type="file"
@@ -93,7 +100,9 @@ const Publish = ({ token }) => {
             <div className="publish__form--input">
               <label htmlFor="description">Décris ton article</label>
               <Input
-                type="text"
+                type="textarea"
+                row={6}
+                cols={30}
                 placeholder="ex: porté quelque fois, taille correctement"
                 name="description"
                 state={description}

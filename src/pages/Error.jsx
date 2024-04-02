@@ -15,7 +15,6 @@ const Error = () => {
         <div className="error__display">
           <p>404 : PAGE NOT FOUND</p>
           <Link to="/" className="error__link">
-            {" "}
             Retour à la page d'accueil
           </Link>
         </div>

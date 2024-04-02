@@ -20,10 +20,16 @@
   border: 2px solid var(--primary-color);
   border-radius: 5px;
   padding: 15px 0;
+  cursor: pointer;
 }
 
-.upload__avatar:hover {
-  cursor: pointer;
+input[type="file"] {
+  display: none;
+}
+
+.upload__avatar--display {
+  width: 70px;
+  object-fit: cover;
 }
 
 .form__checkbox {
@@ -63,4 +69,10 @@
 
 .form__link:hover {
   cursor: pointer;
+}
+
+.form__error {
+  color: var(--secondary-color);
+  font-size: 1.4rem;
+  padding: 10px 0;
 }

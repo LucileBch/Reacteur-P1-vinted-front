@@ -12,6 +12,7 @@
   border: none;
   padding-bottom: 10px;
   border-bottom: 1px solid #fcced3;
+  outline: none;
 }
 
 .upload__button {

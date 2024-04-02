@@ -14,7 +14,7 @@
   background-color: #ffffff;
   font-size: 1.6rem;
   border: 1px solid var(--text-secondary-color);
-  padding: 24px;
+  padding: 200px;
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -30,9 +30,14 @@
   border: 2px solid var(--primary-color);
   border-radius: 5px;
   padding: 15px;
-  > input {
+  /* > input {
     display: none;
-  }
+  } */
+}
+
+.upload__picture--display {
+  width: 20%;
+  object-fit: cover;
 }
 
 .publish__form--section {
@@ -47,6 +52,7 @@
     border-bottom: solid 1px #ebedee;
     padding-bottom: 5px;
     width: 50%;
+    outline: none;
   }
 }
 
