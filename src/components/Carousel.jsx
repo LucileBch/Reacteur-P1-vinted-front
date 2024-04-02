@@ -20,6 +20,7 @@ const Carousel = ({ pictures, data }) => {
     setCurrentIndex(newIndex);
   };
 
+  // Hook useMemo to improve performance keeping track of the current index
   const currentSlide = useMemo(
     () => pictures[currentIndex].secure_url,
     [currentIndex, pictures]

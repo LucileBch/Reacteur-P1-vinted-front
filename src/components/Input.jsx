@@ -3,7 +3,7 @@
 import "../styles/Input.css";
 
 const Input = ({ type, placeholder, name, state, setState }) => {
-  // Handle change
+  // Handle changes on inputs
   const handleChange = (event) => {
     setState(event.target.value);
   };
@@ -13,6 +13,7 @@ const Input = ({ type, placeholder, name, state, setState }) => {
     setState(event.target.files[0]);
   };
 
+  // Class for CSS
   const searchField = name === "search" && "header__input--searchfield";
   const textInput =
     (name === "username" || name === "email" || name === "password") &&

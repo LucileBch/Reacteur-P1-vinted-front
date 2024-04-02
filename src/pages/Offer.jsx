@@ -45,6 +45,7 @@ const Offer = ({
     fetchData();
   }, []);
 
+  // Handle filters display
   if (filterDisplay === true) {
     setFilterDisplay(false);
   }

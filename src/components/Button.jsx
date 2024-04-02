@@ -3,6 +3,7 @@
 import "../styles/Button.css";
 
 const Button = ({ text, onClick, disabled }) => {
+  // Classes for CSS
   const buttonStyle =
     text === "S'inscrire" || text === "Se connecter"
       ? "button button--outlined"

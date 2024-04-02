@@ -71,8 +71,6 @@ const CheckoutForm = ({ title, price }) => {
         redirect: "if_required",
       });
 
-      console.log("ICIIII", paymentIntent);
-
       // IF error during confirmation => show error msg to client
       if (error) {
         setErrorMessage(error.message);
@@ -90,10 +88,9 @@ const CheckoutForm = ({ title, price }) => {
     }
   };
 
-  // Calcul
+  // Calcul prices and total
   let priceProtection = price / 10;
   let priceTransport = price / 5;
-
   let total =
     Number((price * 100).toFixed(0)) +
     Number((priceProtection * 100).toFixed(0)) +

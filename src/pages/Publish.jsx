@@ -27,6 +27,8 @@ const Publish = ({ token, filterDisplay, setFilterDisplay }) => {
 
   const navigate = useNavigate();
 
+  // Enable formData
+  // Submit form and redirect to offer created
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -59,6 +61,7 @@ const Publish = ({ token, filterDisplay, setFilterDisplay }) => {
     }
   };
 
+  // Handle filters display
   if (filterDisplay === true) {
     setFilterDisplay(false);
   }

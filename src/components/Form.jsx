@@ -1,11 +1,11 @@
 // ---------- FORM Component ----------
-// Import packages
+// Packages Imports
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-// Import components
+// Components Imports
 import Input from "./Input";
 
 // Styles Imports
@@ -13,12 +13,12 @@ import "../styles/Form.css";
 
 const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
   // States
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
   const [avatar, setAvatar] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -44,6 +44,7 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
       try {
         setErrorMessage("");
 
+        // Enable formData
         const formData = new FormData();
         formData.append("email", email);
         formData.append("username", name);
@@ -80,7 +81,6 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
       <>
         <h2 className="form__title">S'inscrire</h2>
         <form onSubmit={handleSubmit} className="form__container">
-          {/* <div className="upload__avatar"> */}
           {avatar && (
             <img
               className="upload__avatar--display"
@@ -97,7 +97,6 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
             state={avatar}
             setState={setAvatar}
           />
-          {/* </div> */}
 
           <Input
             type="text"

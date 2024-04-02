@@ -1,10 +1,10 @@
 // ---------- HOME Page ----------
-// Import packages
+// Packages Imports
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-// Import components
+// Components Imports
 import Hero from "../components/Hero";
 import OfferCard from "../components/OfferCard";
 
@@ -31,16 +31,16 @@ const Home = ({
   // Check server response
   //    If waiting for datas : display "loading"
   //    Else : display content
-  // Set offer limit display for each page
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
 
+  // Set offer limit display for each page
   const limit = 10;
   const dividePage = data.count / limit;
   const maxPages = Math.ceil(dividePage);
 
-  // set sort value for URL
+  // Set sort value for URL
   let sortValue = "";
   if (sort === false) {
     sortValue = "price-asc";

@@ -49,6 +49,7 @@ function App() {
     window.onscroll = function () {};
   }
 
+  // Routing logic
   return (
     <StyledEngineProvider injectFirst>
       <div className="modal__parent">

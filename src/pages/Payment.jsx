@@ -18,7 +18,7 @@ const Payment = ({ filterDisplay, setFilterDisplay }) => {
     setFilterDisplay(false);
   }
 
-  // Getting props by Link with useLocation
+  // Getting props from Link with useLocation
   const location = useLocation();
   const { title, price } = location.state;
 
@@ -29,7 +29,7 @@ const Payment = ({ filterDisplay, setFilterDisplay }) => {
     currency: "eur",
   };
 
-  // Component Elements = payment logic
+  // Component Elements => payment logic
   // With proof of connection to Stripe account and payment options
   return (
     <Elements stripe={stripePromise} options={options}>
@@ -38,4 +38,5 @@ const Payment = ({ filterDisplay, setFilterDisplay }) => {
   );
 };
 
+// Export page
 export default Payment;

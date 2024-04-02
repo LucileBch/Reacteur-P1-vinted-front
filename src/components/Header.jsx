@@ -34,8 +34,6 @@ const Header = ({
   filterDisplay,
   setFilterDisplay,
 }) => {
-  // State
-
   // Handle signup/login button
   const handleSignUp = () => {
     setVisible(true);

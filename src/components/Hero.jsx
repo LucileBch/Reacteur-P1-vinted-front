@@ -15,6 +15,7 @@ import Effect from "../assets/img/tear.svg";
 import "../styles/Hero.css";
 
 const Hero = ({ token, setVisible, setModalName, setFilterDisplay }) => {
+  // Handle filters display
   const handleLogin = () => {
     setVisible(true);
     setModalName("login");

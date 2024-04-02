@@ -1,9 +1,5 @@
-import { useIsFocusVisible } from "@mui/material";
-import { Range, getTrackBackground } from "react-range";
-
-// getTrackBackground = ({ min, max }) => {
-//   (min = { min }), (max = { max }), (values = [min, max]), (colors = "#2db0ba");
-// };
+// ---------- PRICERANGE Component ----------
+import { Range } from "react-range";
 
 const PriceRange = ({ priceMin, setPriceMin, priceMax, setPriceMax }) => {
   return (
@@ -22,10 +18,10 @@ const PriceRange = ({ priceMin, setPriceMin, priceMax, setPriceMax }) => {
           style={{
             ...props.style,
             height: "6px",
-            width: "50%",
             backgroundColor: "#ccc",
             borderRadius: "5px",
             width: "80%",
+            outline: "none",
           }}
         >
           {children}
@@ -41,6 +37,7 @@ const PriceRange = ({ priceMin, setPriceMin, priceMax, setPriceMax }) => {
             borderRadius: "100%",
             backgroundColor: "#2db0ba",
             borderColor: "none",
+            outline: "none",
           }}
         >
           <p
@@ -56,9 +53,10 @@ const PriceRange = ({ priceMin, setPriceMin, priceMax, setPriceMax }) => {
               left: "-5px",
               color: "white",
               borderRadius: "5px",
+              outline: "none",
             }}
           >
-            {index === 0 ? priceMin : priceMax}€
+            {index === 0 ? priceMin : priceMax} €
           </p>
         </div>
       )}
@@ -66,4 +64,5 @@ const PriceRange = ({ priceMin, setPriceMin, priceMax, setPriceMax }) => {
   );
 };
 
+// Export component
 export default PriceRange;
