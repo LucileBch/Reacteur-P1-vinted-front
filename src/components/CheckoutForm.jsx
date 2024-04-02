@@ -100,9 +100,14 @@ const CheckoutForm = ({ title, price }) => {
     Number((priceTransport * 100).toFixed(0));
 
   return paymentIsDone ? (
-    <Container maxWidth="lg">
-      <p>Merci pour votre achat</p>
-    </Container>
+    <main className="thanks__main">
+      <Container maxWidth="lg" className="thanks__container">
+        <div>
+          <p>🥳 Merci pour votre achat </p>
+          <p>Il sera bientôt en route ! ✈️</p>
+        </div>
+      </Container>
+    </main>
   ) : (
     <main className="payment__main">
       <Container maxWidth="lg" className="payment__container">

@@ -52,3 +52,23 @@
 .payment__form {
   padding-top: 30px;
 }
+
+.thanks__main {
+  background-color: #ebedee;
+  padding: 200px 0;
+}
+
+.thanks__container {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  font-weight: bold;
+  background-color: #ffffff;
+  border: 2px dashed var(--primary-color);
+  > div {
+    padding: 50px 0;
+  }
+  p {
+    padding: 10px 0;
+  }
+}
