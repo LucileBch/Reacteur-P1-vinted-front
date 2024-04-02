@@ -10,14 +10,19 @@
   gap: 20px;
 }
 
-.publish__form--picture {
-  background-color: #ffffff;
-  font-size: 1.6rem;
+.upload__picture--frame {
   border: 1px solid var(--text-secondary-color);
-  padding: 200px;
+  background-color: #ffffff;
+  margin-top: 20px;
+}
+
+.publish__form--picture {
+  font-size: 1.6rem;
+  border: 2px dashed #ebedee;
+  padding: 100px;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .upload__picture {
@@ -31,6 +36,10 @@
   border-radius: 5px;
   padding: 15px;
   cursor: pointer;
+  > span {
+    font-size: 3.2rem;
+    margin-right: 20px;
+  }
 }
 
 .upload__picture--display {
@@ -68,7 +77,8 @@
   align-items: center;
   justify-content: end;
   gap: 20px;
-  padding: 24px;
+  padding: 24px 0;
+  font-size: 1.6rem;
   > input {
     transform: scale(2);
     width: auto;

@@ -66,26 +66,27 @@ const Publish = ({ token }) => {
       <Container maxWidth="lg">
         <h1>Vends ton article</h1>
         <form onSubmit={handleSubmit} className="publish__form">
-          <div className="publish__form--picture">
-            {/* <div className="upload__picture"> */}
-            {picture && (
-              <img
-                className="upload__picture--display"
-                src={URL.createObjectURL(picture)}
-                alt="produit"
+          <div className="upload__picture--frame">
+            <div className="publish__form--picture">
+              {picture && (
+                <img
+                  className="upload__picture--display"
+                  src={URL.createObjectURL(picture)}
+                  alt="produit"
+                />
+              )}
+              <label htmlFor="picture" className="upload__picture">
+                <span>+</span>
+                Ajouter une photo
+              </label>
+              <Input
+                type="file"
+                name="picture"
+                placeholder="Ajouter une photo"
+                state={picture}
+                setState={setPicture}
               />
-            )}
-            <label htmlFor="picture" className="upload__picture">
-              Ajouter une photo
-            </label>
-            <Input
-              type="file"
-              name="picture"
-              placeholder="Ajouter une photo"
-              state={picture}
-              setState={setPicture}
-            />
-            {/* </div> */}
+            </div>
           </div>
 
           <div className="publish__form--section">
@@ -181,13 +182,12 @@ const Publish = ({ token }) => {
                 setState={setPrice}
               />
             </div>
-
-            <div className="publish__form--inputcheck">
-              <input type="checkbox" name="exchange" />
-              <p>Je suis intéressé(e) par les échanges</p>
-            </div>
           </div>
 
+          <div className="publish__form--inputcheck">
+            <input type="checkbox" name="exchange" />
+            <p>Je suis intéressé(e) par les échanges</p>
+          </div>
           <input className="form__publish" type="submit" value="Ajouter" />
         </form>
       </Container>
