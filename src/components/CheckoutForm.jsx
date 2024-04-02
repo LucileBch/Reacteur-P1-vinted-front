@@ -119,8 +119,8 @@ const CheckoutForm = ({ title, price }) => {
               <p className="price__infos--last">
                 Il ne vous reste plus qu'un étape pour vous offrir{" "}
                 <span>{title}</span>.<br />
-                Vous allez payer <span>{price + 0.4 + 0.8}</span> € (frais de
-                protection et frais de port inclus).
+                Vous allez payer <span>{(price + 0.4 + 0.8).toFixed(2)}</span> €
+                (frais de protection et frais de port inclus).
               </p>
             </div>
           </div>
