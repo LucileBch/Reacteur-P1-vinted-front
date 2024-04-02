@@ -134,7 +134,6 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
             avoir au moins 18 ans.
           </p>
           <input className="form__submit" type="submit" value="S'inscrire" />
-          {errorMessage && <p className="form__error">{errorMessage}</p>}
         </form>
 
         <button
@@ -145,6 +144,7 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
         >
           Tu as déjà un compte ? Connecte-toi !
         </button>
+        {errorMessage && <p className="form__error">{errorMessage}</p>}
       </>
     );
   } else if (modalName === "login") {
@@ -188,7 +188,6 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
           />
 
           <input className="form__submit" type="submit" value="Se connecter" />
-          {errorMessage && <p className="form__error">{errorMessage}</p>}
         </form>
 
         <button
@@ -199,6 +198,7 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
         >
           Pas encore de compte ? Inscris-toi !
         </button>
+        {errorMessage && <p className="form__error">{errorMessage}</p>}
       </div>
     );
   }
