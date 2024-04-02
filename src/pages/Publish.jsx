@@ -13,7 +13,7 @@ import Container from "@mui/material/Container";
 // Styles Imports
 import "../styles/Publish.css";
 
-const Publish = ({ token }) => {
+const Publish = ({ token, filterDisplay, setFilterDisplay }) => {
   // States
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -61,6 +61,10 @@ const Publish = ({ token }) => {
     }
   };
 
+  if (filterDisplay === true) {
+    setFilterDisplay(false);
+  }
+
   return (
     <main className="publish__main">
       <Container maxWidth="lg">
@@ -103,9 +107,7 @@ const Publish = ({ token }) => {
             <div className="publish__form--input">
               <label htmlFor="description">Décris ton article</label>
               <Input
-                type="textarea"
-                row={6}
-                cols={30}
+                type="text"
                 placeholder="ex: porté quelque fois, taille correctement"
                 name="description"
                 state={description}
@@ -131,7 +133,7 @@ const Publish = ({ token }) => {
               <Input
                 type="text"
                 placeholder="ex: L / 40 / 12"
-                name="brand"
+                name="taille"
                 state={size}
                 setState={setSize}
               />

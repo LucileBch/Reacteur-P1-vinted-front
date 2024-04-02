@@ -1,6 +1,7 @@
 // ---------- HEADER Component ----------
 // Packages Imports
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Cookies from "js-cookie";
 
 // MUI Imports
@@ -31,15 +32,21 @@ const Header = ({
   setPriceMin,
   priceMax,
   setPriceMax,
+  filterDisplay,
+  setFilterDisplay,
 }) => {
+  // State
+
   // Handle signup/login button
   const handleSignUp = () => {
     setVisible(true);
     setModalName("signUp");
+    setFilterDisplay(false);
   };
   const handleLogin = () => {
     setVisible(true);
     setModalName("login");
+    setFilterDisplay(false);
   };
 
   // Handle logout button
@@ -85,26 +92,28 @@ const Header = ({
             />
           </Box>
 
-          <Box className="header__filters" page="offer">
-            <Box className="header__filters--switch">
-              <p>Trier par prix:</p>
-              <Switch
-                checked={sort}
-                onChange={handleSort}
-                inputProps={{ "aria-label": "controlled" }}
-              />
-            </Box>
+          {filterDisplay === true && (
+            <Box className="header__filters" page="offer">
+              <Box className="header__filters--switch">
+                <p>Trier par prix:</p>
+                <Switch
+                  checked={sort}
+                  onChange={handleSort}
+                  inputProps={{ "aria-label": "controlled" }}
+                />
+              </Box>
 
-            <Box className="header__filters--range">
-              <p>Prix entre :</p>
-              <PriceRange
-                priceMin={priceMin}
-                setPriceMin={setPriceMin}
-                priceMax={priceMax}
-                setPriceMax={setPriceMax}
-              />
+              <Box className="header__filters--range">
+                <p>Prix entre :</p>
+                <PriceRange
+                  priceMin={priceMin}
+                  setPriceMin={setPriceMin}
+                  priceMax={priceMax}
+                  setPriceMax={setPriceMax}
+                />
+              </Box>
             </Box>
-          </Box>
+          )}
         </Box>
 
         <Box className="header__buttons">

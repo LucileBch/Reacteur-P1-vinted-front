@@ -37,6 +37,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [priceMin, setPriceMin] = useState("");
   const [priceMax, setPriceMax] = useState("");
+  const [filterDisplay, setFilterDisplay] = useState(true);
 
   // Disable scroll when modal opened
   if (visible === true) {
@@ -64,6 +65,8 @@ function App() {
             setPriceMin={setPriceMin}
             priceMax={priceMax}
             setPriceMax={setPriceMax}
+            filterDisplay={filterDisplay}
+            setFilterDisplay={setFilterDisplay}
           />
           <Routes>
             <Route
@@ -81,7 +84,15 @@ function App() {
 
             <Route
               path="/publish"
-              element={token && <Publish token={token} path="/publish" />}
+              element={
+                token && (
+                  <Publish
+                    token={token}
+                    filterDisplay={filterDisplay}
+                    setFilterDisplay={setFilterDisplay}
+                  />
+                )
+              }
             />
 
             <Route path="*" element={<Error />} />
