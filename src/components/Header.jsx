@@ -1,7 +1,6 @@
 // ---------- HEADER Component ----------
 // Packages Imports
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import Cookies from "js-cookie";
 
 // MUI Imports
