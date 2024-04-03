@@ -29,10 +29,18 @@ const Payment = ({ token, filterDisplay, setFilterDisplay }) => {
     title = location.state?.title;
   }
 
+  // Calcul prices and total
+  let priceProtection = price / 10;
+  let priceTransport = price / 5;
+  let total =
+    Number((price * 100).toFixed(0)) +
+    Number((priceProtection * 100).toFixed(0)) +
+    Number((priceTransport * 100).toFixed(0));
+
   // Mode of payment, amount and currency
   const options = {
     mode: "payment",
-    amount: Number((price * 100).toFixed(0)),
+    amount: total,
     currency: "eur",
   };
 
@@ -41,7 +49,13 @@ const Payment = ({ token, filterDisplay, setFilterDisplay }) => {
   // Redirecting to home IF no token && location state
   return token && location.state ? (
     <Elements stripe={stripePromise} options={options}>
-      <CheckoutForm title={title} price={price} />
+      <CheckoutForm
+        title={title}
+        price={price}
+        priceProtection={priceProtection}
+        priceTransport={priceTransport}
+        total={total}
+      />
     </Elements>
   ) : (
     <Navigate to="/"></Navigate>

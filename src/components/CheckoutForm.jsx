@@ -17,7 +17,13 @@ import Container from "@mui/material/Container";
 // Style Imports
 import "../styles/CheckoutForm.css";
 
-const CheckoutForm = ({ title, price }) => {
+const CheckoutForm = ({
+  title,
+  price,
+  priceProtection,
+  priceTransport,
+  total,
+}) => {
   // States
   const [errorMessage, setErrorMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -88,14 +94,6 @@ const CheckoutForm = ({ title, price }) => {
     }
   };
 
-  // Calcul prices and total
-  let priceProtection = price / 10;
-  let priceTransport = price / 5;
-  let total =
-    Number((price * 100).toFixed(0)) +
-    Number((priceProtection * 100).toFixed(0)) +
-    Number((priceTransport * 100).toFixed(0));
-
   return paymentIsDone ? (
     <main className="thanks__main">
       <Container maxWidth="lg" className="thanks__container">
@@ -130,11 +128,10 @@ const CheckoutForm = ({ title, price }) => {
             </p>
             <div>
               <p className="price__infos--last">
-                Il ne vous reste plus qu'un étape pour vous offrir{" "}
+                Il ne vous reste plus qu'un étape pour vous offrir
                 <span>{title}</span>.<br />
-                Vous allez payer{" "}
-                <span>{Number((price + 0.4 + 0.8).toFixed(2))}</span> € (frais
-                de protection et frais de port inclus).
+                Vous allez payer <span>{total / 100}</span> € (frais de
+                protection et frais de port inclus).
               </p>
             </div>
           </div>
