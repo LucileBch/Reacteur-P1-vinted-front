@@ -115,6 +115,7 @@ function App() {
               path="/payment"
               element={
                 <Payment
+                  token={token}
                   filterDisplay={filterDisplay}
                   setFilterDisplay={setFilterDisplay}
                 />
