@@ -13,13 +13,7 @@ const stripePromise = loadStripe(
   "pk_test_51HCObyDVswqktOkX6VVcoA7V2sjOJCUB4FBt3EOiAdSz5vWudpWxwcSY8z2feWXBq6lwMgAb5IVZZ1p84ntLq03H00LDVc2RwP"
 );
 
-const Payment = ({
-  token,
-  setModalName,
-  setVisible,
-  filterDisplay,
-  setFilterDisplay,
-}) => {
+const Payment = ({ token, setModalName, setVisible }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,11 +24,6 @@ const Payment = ({
       setVisible(true);
     }
   }, [token, navigate, setModalName, setVisible]);
-
-  // Disable filters
-  if (filterDisplay === true) {
-    setFilterDisplay(false);
-  }
 
   // Getting props from Link with useLocation IF token & location.state
   const location = useLocation();

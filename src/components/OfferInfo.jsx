@@ -9,18 +9,11 @@ import Button from "./Button";
 import EmptyAvatar from "../assets/img/user-empty-avatar.svg";
 import "../styles/OfferInfo.css";
 
-const OfferInfo = ({
-  infos,
-  token,
-  setVisible,
-  setModalName,
-  setFilterDisplay,
-}) => {
+const OfferInfo = ({ infos, token, setVisible, setModalName }) => {
   // Handle filters display
   const handleLogin = () => {
     setVisible(true);
     setModalName("login");
-    setFilterDisplay(false);
   };
 
   return (

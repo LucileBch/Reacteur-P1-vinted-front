@@ -25,7 +25,6 @@ const Home = ({
   priceMax,
   setVisible,
   setModalName,
-  setFilterDisplay,
 }) => {
   // Fetch API datas with useEffect
   // Check server response
@@ -71,12 +70,7 @@ const Home = ({
 
   return (
     <main>
-      <Hero
-        token={token}
-        setVisible={setVisible}
-        setModalName={setModalName}
-        setFilterDisplay={setFilterDisplay}
-      />
+      <Hero token={token} setVisible={setVisible} setModalName={setModalName} />
       {isLoading === true ? (
         "Loading"
       ) : (

@@ -14,12 +14,11 @@ import HeroImage from "../assets/img/banner-hero.jpg";
 import Effect from "../assets/img/tear.svg";
 import "../styles/Hero.css";
 
-const Hero = ({ token, setVisible, setModalName, setFilterDisplay }) => {
+const Hero = ({ token, setVisible, setModalName }) => {
   // Handle filters display
   const handleLogin = () => {
     setVisible(true);
     setModalName("login");
-    setFilterDisplay(false);
   };
 
   return (

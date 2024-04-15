@@ -13,13 +13,7 @@ import Container from "@mui/material/Container";
 // Styles Imports
 import "../styles/Publish.css";
 
-const Publish = ({
-  token,
-  setModalName,
-  setVisible,
-  filterDisplay,
-  setFilterDisplay,
-}) => {
+const Publish = ({ token, setModalName, setVisible }) => {
   // States
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -75,11 +69,6 @@ const Publish = ({
       console.log(error.response.data);
     }
   };
-
-  // Handle filters display
-  if (filterDisplay === true) {
-    setFilterDisplay(false);
-  }
 
   return (
     <main className="publish__main">

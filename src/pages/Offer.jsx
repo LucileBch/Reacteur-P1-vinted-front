@@ -14,13 +14,7 @@ import Container from "@mui/material/Container";
 // Style Imports
 import "../styles/Offer.css";
 
-const Offer = ({
-  token,
-  setVisible,
-  setModalName,
-  filterDisplay,
-  setFilterDisplay,
-}) => {
+const Offer = ({ token, setVisible, setModalName }) => {
   // Fetch API datas with useEffect
   // Check server response
   //    If waiting for datas : display "loading"
@@ -45,11 +39,6 @@ const Offer = ({
     fetchData();
   }, []);
 
-  // Handle filters display
-  if (filterDisplay === true) {
-    setFilterDisplay(false);
-  }
-
   return (
     <main className="main__offer">
       {isLoading === true ? (
@@ -63,7 +52,6 @@ const Offer = ({
               token={token}
               setVisible={setVisible}
               setModalName={setModalName}
-              setFilterDisplay={setFilterDisplay}
             />
           </Container>
         </section>

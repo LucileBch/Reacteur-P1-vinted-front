@@ -1,7 +1,7 @@
 // ---------- HEADER Component ----------
 // Packages Imports
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 
 // MUI Imports
@@ -23,6 +23,7 @@ const Header = ({
   setVisible,
   token,
   setToken,
+  modalName,
   setModalName,
   sort,
   setSort,
@@ -32,29 +33,39 @@ const Header = ({
   setPriceMin,
   priceMax,
   setPriceMax,
-  filterDisplay,
-  setFilterDisplay,
 }) => {
-  // const location = useLocation();
-  // console.log(location);
-  // console.log(location.pathname);
+  // useLocation to point to actual pathname
+  const location = useLocation();
 
-  // const [filterDisplay, setFilterDisplay] = useState(true);
+  // State to display filters
+  const [filterDisplay, setFilterDisplay] = useState(true);
 
-  // if (location.pathname === "/publish") {
-  //   setFilterDisplay(false);
-  // }
+  // Updating filterDisplay according to location.pathname
+  useEffect(() => {
+    if (
+      location.pathname === "/publish" ||
+      location.pathname === "/payment" ||
+      location.pathname.includes("/offers/")
+    ) {
+      setFilterDisplay(false);
+    } else if (
+      location.pathname === "/" &&
+      (modalName === "login" || modalName === "signUp")
+    ) {
+      setFilterDisplay(false);
+    } else {
+      setFilterDisplay(true);
+    }
+  }, [location.pathname, modalName]);
 
   // Handle signup/login button
   const handleSignUp = () => {
     setVisible(true);
     setModalName("signUp");
-    setFilterDisplay(false);
   };
   const handleLogin = () => {
     setVisible(true);
     setModalName("login");
-    setFilterDisplay(false);
   };
 
   // Handle logout button

@@ -38,7 +38,6 @@ function App() {
   const [search, setSearch] = useState("");
   const [priceMin, setPriceMin] = useState("");
   const [priceMax, setPriceMax] = useState("");
-  const [filterDisplay, setFilterDisplay] = useState(true);
 
   // Disable scroll when modal opened
   if (visible === true) {
@@ -58,6 +57,7 @@ function App() {
             setVisible={setVisible}
             token={token}
             setToken={setToken}
+            modalName={modalName}
             setModalName={setModalName}
             sort={sort}
             setSort={setSort}
@@ -67,8 +67,6 @@ function App() {
             setPriceMin={setPriceMin}
             priceMax={priceMax}
             setPriceMax={setPriceMax}
-            filterDisplay={filterDisplay}
-            setFilterDisplay={setFilterDisplay}
           />
           <Routes>
             <Route
@@ -82,7 +80,6 @@ function App() {
                   priceMax={priceMax}
                   setVisible={setVisible}
                   setModalName={setModalName}
-                  setFilterDisplay={setFilterDisplay}
                 />
               }
             />
@@ -93,8 +90,6 @@ function App() {
                   token={token}
                   setVisible={setVisible}
                   setModalName={setModalName}
-                  filterDisplay={filterDisplay}
-                  setFilterDisplay={setFilterDisplay}
                 />
               }
             />
@@ -106,8 +101,6 @@ function App() {
                   token={token}
                   setModalName={setModalName}
                   setVisible={setVisible}
-                  filterDisplay={filterDisplay}
-                  setFilterDisplay={setFilterDisplay}
                 />
               }
             />
@@ -118,8 +111,6 @@ function App() {
                   token={token}
                   setModalName={setModalName}
                   setVisible={setVisible}
-                  filterDisplay={filterDisplay}
-                  setFilterDisplay={setFilterDisplay}
                 />
               }
             />
