@@ -1,7 +1,7 @@
 // ---------- PUBLISH Page ----------
 // Packages Imports
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // Components Imports
@@ -13,7 +13,13 @@ import Container from "@mui/material/Container";
 // Styles Imports
 import "../styles/Publish.css";
 
-const Publish = ({ token, filterDisplay, setFilterDisplay }) => {
+const Publish = ({
+  token,
+  setModalName,
+  setVisible,
+  filterDisplay,
+  setFilterDisplay,
+}) => {
   // States
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -26,6 +32,15 @@ const Publish = ({ token, filterDisplay, setFilterDisplay }) => {
   const [picture, setPicture] = useState("");
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // If user without token => redirection to home page with login modal open
+    if (!token && window.location.pathname === "/publish") {
+      navigate("/");
+      setModalName("login");
+      setVisible(true);
+    }
+  }, [token, navigate, setModalName, setVisible]);
 
   // Enable formData
   // Submit form and redirect to offer created

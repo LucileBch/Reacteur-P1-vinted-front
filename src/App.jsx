@@ -102,13 +102,13 @@ function App() {
             <Route
               path="/publish"
               element={
-                token && (
-                  <Publish
-                    token={token}
-                    filterDisplay={filterDisplay}
-                    setFilterDisplay={setFilterDisplay}
-                  />
-                )
+                <Publish
+                  token={token}
+                  setModalName={setModalName}
+                  setVisible={setVisible}
+                  filterDisplay={filterDisplay}
+                  setFilterDisplay={setFilterDisplay}
+                />
               }
             />
             <Route
@@ -116,6 +116,8 @@ function App() {
               element={
                 <Payment
                   token={token}
+                  setModalName={setModalName}
+                  setVisible={setVisible}
                   filterDisplay={filterDisplay}
                   setFilterDisplay={setFilterDisplay}
                 />
