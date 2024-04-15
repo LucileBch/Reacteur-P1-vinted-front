@@ -13,7 +13,7 @@ import Container from "@mui/material/Container";
 // Styles Imports
 import "../styles/Publish.css";
 
-const Publish = ({ token, setModalName, setVisible }) => {
+const Publish = ({ token }) => {
   // States
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -26,15 +26,6 @@ const Publish = ({ token, setModalName, setVisible }) => {
   const [picture, setPicture] = useState("");
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // If user without token => redirection to home page with login modal open
-    if (!token && window.location.pathname === "/publish") {
-      navigate("/");
-      setModalName("login");
-      setVisible(true);
-    }
-  }, [token, navigate, setModalName, setVisible]);
 
   // Enable formData
   // Submit form and redirect to offer created
@@ -70,7 +61,9 @@ const Publish = ({ token, setModalName, setVisible }) => {
     }
   };
 
-  return (
+  return !token ? (
+    <Navigate to={"/"} state={{ info: "login" }} />
+  ) : (
     <main className="publish__main">
       <Container maxWidth="lg">
         <h1>Vends ton article</h1>

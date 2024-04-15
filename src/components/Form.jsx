@@ -161,6 +161,7 @@ const Form = ({ modalName, setModalName, setToken, visible, setVisible }) => {
         Cookies.set("userToken", data.token, { expires: 7 });
         setToken(data.token);
         setVisible(!visible);
+        setModalName("");
       } catch (error) {
         if (error.response.status === 400 || error.response.status === 401) {
           setErrorMessage("Email ou mot de passe incorrect ou inexistant.");

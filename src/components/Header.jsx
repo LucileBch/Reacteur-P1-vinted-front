@@ -40,23 +40,13 @@ const Header = ({
   // State to display filters
   const [filterDisplay, setFilterDisplay] = useState(true);
 
-  // Updating filterDisplay according to location.pathname
   useEffect(() => {
-    if (
-      location.pathname === "/publish" ||
-      location.pathname === "/payment" ||
-      location.pathname.includes("/offers/")
-    ) {
-      setFilterDisplay(false);
-    } else if (
-      location.pathname === "/" &&
-      (modalName === "login" || modalName === "signUp")
-    ) {
+    if (modalName || location.pathname !== "/") {
       setFilterDisplay(false);
     } else {
       setFilterDisplay(true);
     }
-  }, [location.pathname, modalName]);
+  }, [modalName, location.pathname]);
 
   // Handle signup/login button
   const handleSignUp = () => {

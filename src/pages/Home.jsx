@@ -1,6 +1,6 @@
 // ---------- HOME Page ----------
 // Packages Imports
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -33,6 +33,16 @@ const Home = ({
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
+
+  // useLocation
+  const location = useLocation();
+  const info = location.state?.info;
+  useEffect(() => {
+    if (info === "login") {
+      setModalName("login");
+      setVisible(true);
+    }
+  }, []);
 
   // Set offer limit display for each page
   const limit = 10;

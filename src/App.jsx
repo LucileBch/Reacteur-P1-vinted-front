@@ -94,26 +94,8 @@ function App() {
               }
             />
 
-            <Route
-              path="/publish"
-              element={
-                <Publish
-                  token={token}
-                  setModalName={setModalName}
-                  setVisible={setVisible}
-                />
-              }
-            />
-            <Route
-              path="/payment"
-              element={
-                <Payment
-                  token={token}
-                  setModalName={setModalName}
-                  setVisible={setVisible}
-                />
-              }
-            />
+            <Route path="/publish" element={<Publish token={token} />} />
+            <Route path="/payment" element={<Payment token={token} />} />
             <Route path="*" element={<Error />} />
           </Routes>
           <Footer />
